@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Data Pagination
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">UI
+                                            <ul><li>Pagination</li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\UI</span>\Pagination
+                            
+                        </div> 
+                    </div>
+
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#create">Create Pagination</a></li>
+                                    <li><a href="#methods">Methods</a></li>
+                                
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Data Pagination</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+
+                    <p>
+                            Ness PHP contains a pagination class which is easy to use and also easy to customize as your needs(Visually or Functionality). This topic is tutoried with an example.
+                    </p>
+
+                    <h4 id="create">Create Pagination</h4>
+                    <p>
+                            Assume that we are developing a blog application. We have to show all registered users in a list. To complete this task we will do the followings; 
+
+                            <ol>
+                                <li>Create a Users controller</li>
+                                <li>Create a listAction</li>
+                                <li>Design the page which users will be listed</li>
+                                <li>Code: listAction</li>
+                                <li>Code: view page</li>
+                            </ol>
+
+                            <br><br>
+
+                            In that case let's start with creating a controller and a listAction. 
+                            We are going to add a new controller in controller directory with name 'usersController.php'. Our usersController.php file need to contain a class named users and a function called listAction. 
+                            <pre>
+                                <code class="php">
+&#x3C;?php
+
+use Ness\UI\Pagination;
+use Ness\Autopulse\MySqlConnect;
+use Ness\Autopulse\MySqlCommand;
+
+
+class usersController extends Ness\Controller
+{
+    public function indexAction()
+    {
+        //nothing to do;
+    }
+
+    public function listAction($param = null)
+    {
+        //set current page parameter in view
+        
+        $this-&#x3E;View-&#x3E;intCurrentPage = $param; //This paramater is also set on related view to get parameter
+        
+        //get users from database
+        $con = new MySqlConnect(&#x22;localhost&#x22;, &#x22;root&#x22;, &#x22;&#x22;, &#x22;papp&#x22;);
+        $cmd = new MySqlCommand(&#x22;select * from users&#x22;, $con-&#x3E;Source());
+        
+        
+        //send as array to view all records...
+        $this-&#x3E;View-&#x3E;data_set = $cmd-&#x3E;FetchAll();
+
+        $this-&#x3E;View-&#x3E;Render(&#x22;list.php&#x22;); //load view to screen
+    }
+    
+}
+                                </code>
+                            </pre>
+
+                            This is our controller for listing a data with pagination. Parameter <code>$param</code>
+                            in listAction will be used to pass the page number.
+
+                            Example url for pagination will be;<br>
+                            <br>
+                            http://mysite.com/users/list/1<br>
+                            http://mysite.com/users/list/2<br>
+                            http://mysite.com/users/list/3<br>
+                            http://mysite.com/users/list/n<br> 
+                            <span class="ug-code ug-keyword">n</span> is the page number which starts from 1 and continues until the end of pagination.
+                            <br><br>
+
+
+                            Now let's code the view page for the listAction show the paginated data;<br>
+
+                            <pre>
+                                <code class="php">
+use Ness\UI\Page;
+use Ness\UI\Pagination;
+
+
+//We are creating a paginator which gets current page as parameter
+//[NOTE]: intCurrentPage variable sent from controller....
+$userlist = new Pagination($this-&#x3E;intCurrentPage);
+//We get in paginate method all users and we want to show 5 records per page.
+$userlist-&#x3E;Paginate($this-&#x3E;data_set, 5);
+
+
+$view = new Page();
+$view-&#x3E;SetLayout(&#x22;master.phtml&#x22;);
+
+
+$view-&#x3E;BeginContent();?&#x3E;
+
+
+&#x3C;h1&#x3E;User List&#x3C;/h1&#x3E;
+
+
+foreach ($userlist-&#x3E;FetchResults() as $user) {
+    echo &#x22;Name: &#x22;.$user[&#x22;firstname&#x22;].&#x22;&#x3C;br&#x3E;&#x22;;
+    echo &#x22;Surname: &#x22;.$user[&#x22;lastname&#x22;].&#x22;&#x3C;br&#x3E;&#x22;;
+    echo &#x22;Email: &#x22;.$user[&#x22;email&#x22;].&#x22;&#x3C;br&#x3E;&#x3C;hr&#x3E;&#x22;;
+}
+    $userlist-&#x3E;setLinkStyle(array(&#x22;class&#x22;=&#x3E;&#x22;btn btn-primary&#x22;, &#x22;style&#x22;=&#x3E;&#x22;margin-right:5px; margin-left:5px;&#x22;));// we set button link css class and styles
+    echo $userlist-&#x3E;BackLink(&#x22;users&#x22;, &#x22;list&#x22;, &#x22;Previous&#x22;); //this is optional, shows a back button on links
+    echo $userlist-&#x3E;BuildLinks(&#x22;users&#x22;, &#x22;list&#x22;); // this is important: printing all page links ex: 1 2 3 4 
+    echo $userlist-&#x3E;NextLink(&#x22;users&#x22;, &#x22;list&#x22;, &#x22;Next&#x22;); // this is optional, shows a next button.
+    
+
+?&#x3E;
+                                </code>
+                            </pre>
+
+                            <br><br><br>
+
+                            Result for the pagination;
+
+                            <br>
+
+                            <img class="code-desc" src="../assets/images/pagination.png"/>
+                    </p>
+                    <br><br>
+
+                    <br><br>
+
+                    <h4 id="methods">Methods</h4>
+                    <p>
+
+                        <h5>__construct Method</h5>
+                        <p>
+                            While you re defining a new Pagination you need to set as parameter in the construct method of Pagination the page number get from controller's listAction
+                            <pre><code class="php">$pag = new Pagination(integer  $currentpage_param = 1);</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Creates a new pagination object with the current page number.</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">Object</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$currentpage_param Integer; Page number get from Controller.</td>
+                            </tr>
+                            </table><br><br><br>
+                        </p>
+
+
+                        <h5>Paginate</h5>
+                        <p>
+                            <pre><code class="php">$pag->Paginate(Array $data_set,integer  $per_page= 10);</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Generates the pages.</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">Void</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$data_set Array; the array which data is stored. <br>
+                                                $per_page Integer; Records per page.</td>
+                            </tr>
+                            </table><br><br><br>
+                        </p>
+
+
+
+                        <h5>FetchResults</h5>
+                        <p>
+                            <pre><code class="php">$pag->FetchResults() : Array</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Get the records with queue. For example if record per page is set to 5 get the first 5 records.</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">Array</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">Void</td>
+                            </tr>
+                            </table><br><br><br>
+                        </p>
+
+
+
+                        <h5>SetLinkStyle</h5>
+                        <p>
+                            <pre><code class="php">$pag->SetLinkStyle(Array $attrb)</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Set attributes for links</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">Void</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$attr Array. html attributes for styling links. Key as attribute and value as style; <code>array("class"=>"btn btn-primary", "style"=>"margin-right:5px; margin-left:5px;")</code></td>
+                            </tr>
+                            </table><br><br><br>
+                        </p>
+
+
+
+
+                        <h5>BuildLinks</h5>
+                        <p>
+                            <pre><code class="php">$pag->BuildLinks(string $controller, string $action)</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Returns links for paginated data</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">String; Html links</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$controller String; Controller name which loads pagination<br>
+                                                $action String; action name in controller which loads pagination</td>
+                            </tr>
+                            </table><br><br><br>
+                        </p>
+
+
+
+                        <h5>BackLink</h5>
+                        <p>
+                            <pre><code class="php">$pag->BackLink(string $controller, string $action, string $text = "Back") </code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Returns back link if not first page of data data</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">String; Html links</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$controller String; Controller name which loads pagination<br>
+                                                $action String; action name in controller which loads pagination<br>
+                                                $text String; text to show on 'Back' button default: Back</td>
+                            </tr>
+                            </table><br><br><br>
+                        </p>
+
+
+
+                        
+
+                        <h5>NextLink</h5>
+                        <p>
+                            <pre><code class="php">$pag->NextLink(string $controller, string $action, string $text = "Next")</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Returns next link if not last page of data data</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">String; Html links</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$controller String; Controller name which loads pagination<br>
+                                                $action String; action name in controller which loads pagination<br>
+                                                $text String; text to show on 'Next' button default: Next</td>
+                            </tr>
+                            </table><br><br><br>
+                        </p>
+
+
+                        <br><br>
+
+
+                        You can follow the <a href="#create">tutorial</a> for learning how to use this libraries methods. 
+
+
+
+
+
+                    </p>
+
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

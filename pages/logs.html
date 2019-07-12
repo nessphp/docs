@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Creating Logs & Using Logger Class
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Log
+                                            <ul><li>Logger</li></ul> 
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <br>
+
+                            <ul class="tree">
+                                    <li style="color:#28A745;">Ness
+                                        <ul>
+                                            <li style="color:#fff;">Log
+                                                <ul><li>LogTypeProvider</li></ul> 
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\Log</span>\Logger
+
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\Log</span>\LogTypeProvider
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">About Logs</a></li>
+                                    <li><a href="#create">Create Logs</a></li>
+                                    <li><a href="#clear">Clear Logs</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Creating Logs & Using Logger Class</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">About Logs</h4>
+                    <p>
+                        This class is used to generate logs. You can use the functions of class for creating Error files, warning files or output messages. Created txt files will be located in 'Output' folder of your application. 
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="create">Create Logs</h4>
+                    <p>
+                        Create an output log file.
+
+                        <br>
+                        <pre>
+                            <code class="php">Logger::Output(LogTypeProvider  $type, string  $title,string  $msg ) : void</code>
+                        </pre>
+                        
+                        <br>
+                    <ol style="list-style: circle;">
+                        <li>
+                            Log Types for Parameter $type;
+                            <ol style="list-style: disc;">
+                                <li>LogTypeProvider::Error()</li>
+                                <li>LogTypeProvider::Warning()</li>
+                                <li>LogTypeProvider::OutputMessage()</li>
+                            </ol>        
+                        </li>
+                    </ol>
+
+
+                    <h5>Example</h5>
+
+                    Create a log when user is loged in;
+
+                    <pre>
+<code class="php">
+if(isUserActive()){
+    Logger::Output(LogTypeProvider::OutputMessage(), "Log-in Action", "{@sessiondata['username']} is logged in. Date & Time:".date());
+}</code>
+                    </pre>
+                    </p>
+                    <br><br>
+
+                    <h4 id="clear">Clear Logs</h4>
+                    <p>
+                            Clear Log Files. If you do not set a parameter to function all logs will be cleared.
+
+                        <br>
+                        <pre>
+                            <code class="php">Logger::ClearLogs(LogTypeProvider  $type) : void</code>
+                        </pre>
+
+                        <div class="alert alert-info">
+                            Do not set a type for clearing all log files
+                        </div>
+                    </p>
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

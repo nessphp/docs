@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  MySql Database Commands
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Autopulse
+                                            <ul><li>MySqlCommand</li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\Autopulse</span>\MySqlCommand
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#create-command">Create a Command</a></li>
+                                    <li><a href="#set-parameter">Set Parameters</a></li>
+                                    <li><a href="#fetch-all">Fetch All</a></li>
+                                    <li><a href="#fetch">Fetch</a></li>
+                                    <li><a href="#rowcount">Count Rows</a></li>
+                                    <li><a href="#lastid">Last Inserted Id</a></li>
+                                    <li><a href="#execute">Execute a Command</a></li>
+                                    <li><a href="#example">Example</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">MySql Database Commands</h3>
+                    <hr>
+                    <br>
+                    <p>
+                        This library is used to run your queries.
+                    </p>
+                    <br><br>
+
+
+
+                    <h4 id="methods">Methods</h4>
+                    <p>
+                       <!---->
+                       <h5 id="create-command">Create Command</h5>
+                       <pre><code class="php">$cmd = new MySqlCommand(String $command, dbConnect | MySqlConnect  $source);</code></pre>
+                       <table class="code-desc">
+                       <tr>
+                           <td colspan="3">You need create an instance of MySqlCommand library for your commands. You can define your command when creating a MySqlCommand instance</td>
+                       </tr>
+                       <tr>
+                           <td>Return</td>
+                           <td colspan="2">Command Object</td>
+                       </tr>
+                       <tr>
+                           <td>Parameters</td>
+                           <td colspan="2">$command String; Command to run <br> $source Connection Source; MySqlConnect or dbConnect connection source; ex: $connection->Source();</td>
+                       </tr>
+                       </table><br>
+                       <b>Example: <br></b>
+                       <pre>
+                           <code class="php">$cmd = new MySqlCommand("select * from db", $mysqlconnection->Source());</code>
+                       </pre>
+                       <br><br>
+
+
+
+
+
+
+                        <!---->
+                        <h5 id="set-parameter">Set Parameters</h5>
+                        <pre><code class="php">$cmd->SetParameter(  String  $param,  String   $value,  $type = null)</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">This function is used when you use parameterized queries.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$param String; Parameter id <br>
+                                            $value Type; Parameter value <br>
+                                            $type PDO Parameter type;PDO::Parameter_TYPE.</td>
+                        </tr>
+                        </table><br>
+                        <b>Example: <br></b>
+                        <pre>
+                            <code class="php">
+$cmd = new MySqlCommand("select * from user where status=:status",$myconnnection->Source());
+$cmd->setParameter(":status", "active");
+$data = $cmd->FetchAll();
+                            </code>
+                        </pre>
+                        <br><br>
+
+
+
+
+
+                        <!---->
+                       <h5 id="fetch-all">Fetch All</h5>
+                       <pre><code class="php">$cmd->FetchAll();</code></pre>
+                       <table class="code-desc">
+                       <tr>
+                           <td colspan="3">Fetch all records from returned query </td>
+                       </tr>
+                       <tr>
+                           <td>Return</td>
+                           <td colspan="2">Array</td>
+                       </tr>
+                       <tr>
+                           <td>Parameters</td>
+                           <td colspan="2">None</td>
+                       </tr>
+                       </table><br>
+
+
+
+                       <!---->
+                       <h5 id="fetch">Fetch</h5>
+                       <pre><code class="php">$cmd->Fetch();</code></pre>
+                       <table class="code-desc">
+                       <tr>
+                           <td colspan="3">Fetch a single record from returned query </td>
+                       </tr>
+                       <tr>
+                           <td>Return</td>
+                           <td colspan="2">Array</td>
+                       </tr>
+                       <tr>
+                           <td>Parameters</td>
+                           <td colspan="2">None</td>
+                       </tr>
+                       </table><br>
+
+
+
+                       
+                       <!---->
+                       <h5 id="rowcount">Count Rows</h5>
+                       <pre><code class="php">$cmd->RowCount();</code></pre>
+                       <table class="code-desc">
+                       <tr>
+                           <td colspan="3">Count affected rows</td>
+                       </tr>
+                       <tr>
+                           <td>Return</td>
+                           <td colspan="2">Integer</td>
+                       </tr>
+                       <tr>
+                           <td>Parameters</td>
+                           <td colspan="2">None</td>
+                       </tr>
+                       </table><br>
+
+
+
+
+                       <!---->
+                       <h5 id="lastid">Last Inserted Id</h5>
+                       <pre><code class="php">$cmd->LastInsertedID();</code></pre>
+                       <table class="code-desc">
+                       <tr>
+                           <td colspan="3">Return last inserted id</td>
+                       </tr>
+                       <tr>
+                           <td>Return</td>
+                           <td colspan="2">Integer</td>
+                       </tr>
+                       <tr>
+                           <td>Parameters</td>
+                           <td colspan="2">None</td>
+                       </tr>
+                       </table><br>
+
+
+
+                        <!---->
+                        <h5 id="execute">Execute a Command</h5>
+                        <pre><code class="php">$cmd->Execute();</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Execute the command in constructor.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Array</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table><br>
+ 
+                       
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="example">Example: Using ObjectMappers with Database Operations</h4>
+                    <p>
+                        The database connections may also change during the application's development 
+                        process. Instead of searching the entire code for changed information every time, 
+                        you can use the ObjectMapper class to define as many connections as you want and 
+                        control them from a single point.As mentioned in previous articles, 
+                        the Ness PHP Framework's Register function is triggered when app starts. 
+                        <br><br>
+                        Based on this information, let us define our connection.
+                        Open; <br>project_folder/app_config.php and add these lines to Register() function in Application class.
+
+
+                        <pre>
+                            <code class="php">
+                                
+public function Register()
+{
+		omap::MapNew("database_1",
+                        array("host"=>"localhost",
+                              "database"=>"papp",
+                              "user"=>"root",
+                              "password"=>"myDB_password",
+                              "options"=>null));
+}
+                            </code>
+                        </pre>
+                        <br><br>
+                        Thats all. Let's say we have a Auth controller and LoginAction, and we need to connect our database in AuthController.php controller. Open; project_folder/controller/AuthController.php and do the following;
+
+                        <pre>
+                            <code class="php">
+                                
+use Ness\Controller As plController;
+use Ness\Autopulse\MySqlConnect;
+use Ness\Autopulse\MySqlCommand;
+use Ness\Tool\ObjectMapper as omap;
+
+class AuthController extends plController{
+
+ 
+	public function IndexAction($param=0)
+	{
+           $cons = omap::GetValue("database_1");
+           $myconnnection = new MySqlConnect($cons["host"],$cons["user"],$cons["password"],$cons["database"]);
+           $cmd = new MySqlCommand("select * from user where status=:status",$myconnnection->Source());
+           $cmd->Setparameter(":status", "active");
+           $data_set = $cmd->FetchAll();
+           var_dump($data_set);
+            
+            
+            $this->View->Render("login.html");
+	}
+}
+                            </code>
+                        </pre>
+                    </p>
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

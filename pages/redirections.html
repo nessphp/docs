@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Generate Url's
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Url
+                                            <!-- <ul><li>Library</li></ul> -->
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness</span>\Url
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">About Url Class</a></li>
+                                    <li><a href="#redirect">Redirect to Controller</a></li>
+                                    <li><a href="#area">Create Area</a></li>
+                                    <li><a href="#methods">Other Methods</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Generate Url's</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">About Url Class</h4>
+                    <p>
+                        Ness PHP uses controllers to map your routes. You does not require to specify routes when you are codding your page relationships. You can read <a href="structure.html#url">URL Structure</a> of Ness PHP before reading and trying redirections. 
+                    </p>
+                    <br><br>
+
+
+
+                    <h4 id="redirect">Redirect to Controller</h4>
+                    <p>
+                        Let's say you are developing a blog application and you have two controllers a postController and authController with actions;
+                        <ol style="list-style-type: circle;"> 
+                            <li>postController
+                                <ol style="list-style-type:disc;">
+                                    <li>indexAction: List all posts</li>
+                                    <li>viewAction: View a selected post</li>
+                                    <li>editAction: Edit the selected post</li>
+                                </ol>
+                            </li>
+                            <br>
+
+                            <li>authController
+                                <ol style="list-style-type:disc;">
+                                    <li>indexAction: Login page</li>
+                                    <li>loginAction: Same with indexAction (just call $this->indexAction(); from this action</li>
+                                    <li>logoutAction: Sign out action</li>
+                                    <li>registerAction: Create a new user account</li>
+                                </ol>
+                            </li> 
+                        </ol>
+
+                        <br>
+
+                        For the structure above your controllers should look like;
+                        <br>
+                        <pre><code class="php">               
+class postController extends Ness\Controller{
+
+    public function indexAction(){
+        //Your codes here
+    }
+
+    public function viewAction($id = 1){
+        //Your codes here
+    }
+
+
+    public function editAction($id = 0){
+        //your codes here
+    }
+}
+                        </code></pre>
+
+
+                        <br><br>
+
+                        <pre><code class="php">            
+class authController extends Ness\Controller{
+
+    public function indexAction(){
+        //Your codes here
+    }
+
+    public function loginAction(){
+        //Your codes here
+    }
+
+
+    public function logoutAction(){
+        //your codes here
+    }
+
+    public function registerAction($type = 'admin'){
+        if($type == 'admin'){
+            //Admin registration
+        }else {
+            //Member Registration
+        }
+    }
+}
+                        </code></pre>
+                        <br><br>
+
+                        For these two classes above generatable urls should be;
+                        <ol style="list-style-type: circle;"> 
+                            <li>postController
+                                <ol style="list-style-type:disc;">
+                                    <li>http://examplesite.com/post/ <small>Because there is an indexAction</small></li>
+                                    <li>http://examplesite.com/post/index</li>
+                                    <li>http://examplesite.com/post/view/ID</li>
+                                    <li>http://examplesite.com/post/edit/ID</li>
+                                    
+                                </ol>
+                            </li>
+                            <br>
+
+                            <li>authController
+                                <ol style="list-style-type:disc;">
+                                    <li>http://examplesite.com/auth</li>
+                                    <li>http://examplesite.com/auth/index</li>
+                                    <li>http://examplesite.com/auth/login</li>
+                                    <li>http://examplesite.com/auth/logout</li>
+                                    <li>http://examplesite.com/auth/register/{PARAMETER}</li>
+                                </ol>
+                            </li> 
+                        </ol>
+                        
+                        Let's say you want to generate an url for post controller's viewAction and with post ID 4785;<br>
+
+                        <pre>
+                            <code class="php">Url::RedirectToAction("post", "view", "4785");</code>
+                        </pre>
+                        This code line will return a string (which you can use it with html's a tag); http://examplesite.com/post/view/4785
+
+                        <br><br><br>
+                        <h5>Method Explained</h5>
+                        <pre>
+                            <code class="php">Url::RedirectToAction($controller_name, $action_name, $parameter_if_available);</code>
+                        </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">This function returns a redirectable url from your controllers's actions. For example you can use this with html's a tags href attribute.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$controller_name String; Cotroller name with out 'Controller' suffix<br>
+                                            $action_name String; Action name with out 'Action' suffix<br>
+                                            $parameter_if_available String; If action method contains a parameter you can set a parameter here. [Note]: if actionnameAction does not contains a parameter you should not set this.</td>
+                        </tr>
+                        </table><br>
+                        
+                        <div class="alert alert-warning">
+                            <strong>Recommendation</strong> Ness PHP recommends you to create always Actions with parameters. With default value Even if you won't use it.
+                        </div>
+
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="area">Create Area</h4>
+                    <p>
+                        Ness PHP supports creating areas by adding a sub-folder to 'Controller' directory. You can create new folders in Controller directory to divide big projects and get rid of the complexity.
+                        <br><br>
+                        Let's say you are developing a project with backend and you need to separate admin area from member area. Create a folder in Controller path called 'adminArea'.You can create now unlimited controllers in adminArea to manage your url's, codes and logic.
+
+                        <div class="alert alert-warning">
+                            <strong>Area Suffix</strong> Do not forget to add Area suffix to your folders. Ness PHP looks for 'Area' suffix to undertand that folder is area and should make redirections to controllers in that folder.
+                        </div>
+
+
+                        <br><br><br>
+                        <h5>Method Explained for Area Redirections</h5>
+                        <pre>
+                            <code class="php">Url::RedirectToArea($area ,$controller_name, $action_name, $parameter_if_available);</code>
+                        </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">This function returns a redirectable url from your controllers's actions in an Area. For example you can use this with html's a tags href attribute.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$area String; Area name without 'Area' suffix
+                                            $controller_name String; Cotroller name with out 'Controller' suffix<br>
+                                            $action_name String; Action name with out 'Action' suffix<br>
+                                            $parameter_if_available String; If action method contains a parameter you can set a parameter here. [Note]: if actionnameAction does not contains a parameter you should not set this.</td>
+                        </tr>
+                        </table><br>
+                        <br><br>
+
+                        Here is an example for creating a redirectable url in adminArea->userController->editAction->userid=4758
+                        <pre>
+                            <code class="php">Url::RedirectToArea('admin', 'user', 'edit', '4758');</code>
+                        </pre>
+                        This will return: http://mysite.com/user/edit/4758?p=admin
+
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="methods">Other Methods of Url Class</h4>
+                    <p>
+                        Url class contains some more methods which can be useful in your projects. Here is a short description about that commands.
+                        
+                        <br><br><br>
+                        <h5>getArea</h5>
+                        <pre>
+                            <code class="php">Url::getArea();</code>
+                        </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get area data from url.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table>
+
+                        <br><br><br>
+                        <h5>Redirect</h5>
+                        <pre>
+                            <code class="php">Url::Redirect($url, $sec);</code>
+                        </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Redirect directly.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Request</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$url String; Url to get redirected<br>
+                                            $sec Integer; seconds to wait before redirection</td>
+                        </tr>
+                        </table>
+
+
+                        <br><br><br>
+                        <h5>getUrl</h5>
+                        <pre>
+                            <code class="php">Url::getUrl();</code>
+                        </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get the current url</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table>
+
+
+                        <br><br><br>
+                        <h5>getData</h5>
+                        <pre>
+                            <code class="php">Url::getData(String $id);</code>
+                        </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get the data from parameter in url.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$id String; parameter to get data from. for example; www.mysite.com/users/edit/4758?p=admin&option=delete <br><br>
+                                if you call the Url::getData("option"); that will return 'delete'.
+                            </td>
+                        </tr>
+                        </table>
+
+
+                    </p>
+                    <br><br>
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

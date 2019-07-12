@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Object Mapper Class
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Tool
+                                            <ul><li>ObjectMapper</li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\Tool</span>\ObjectMapper
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">Object Mappers</a></li>
+                                    <li><a href="#set">Map New Value</a></li>
+                                    <li><a href="#get">Get Mapped Value</a></li>
+                                    <li><a href="#example">Example</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Object Mapper Class</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">Object Mappers</h4>
+                    <p>
+                        Object Mappers are used to define a value globally. You can pass any type of variable  between Controllers & Views,  System & Application, Configuration & Project. In simple words you can pass variable from any layer of your project to another excepts models. 
+                        Object Mapper class (shortly; omap) is very useful for data transfer and very easy to get adapt. You can transfer variables just writing a single line of code.
+                    </p>
+                    <br><br>
+
+                    <h4 id="set">Map New Value</h4>
+                    <p>
+                        <!---->
+                        <pre><code class="php">ObjectMapper::MapNew(string  $name, mixed  $data);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Map new variable for use it globally</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$name String; id for the object<br>
+                                            $data Anything; your daat definition.</td>
+                        </tr>
+                        </table><br><br><br>
+                    </p>
+                    <br><br>
+
+                    <h4 id="get">Get Mapped Value</h4>
+                    <p>
+                       <!---->
+                       <pre><code class="php">ObjectMapper::getValue(string  $name);</code></pre>
+                       <table class="code-desc">
+                       <tr>
+                           <td colspan="3">Get a variable's data</td>
+                       </tr>
+                       <tr>
+                           <td>Return</td>
+                           <td colspan="2">Data Type</td>
+                       </tr>
+                       <tr>
+                           <td>Parameters</td>
+                           <td colspan="2">$name String; id for the object<br></td>
+                       </tr>
+                       </table><br><br><br>
+                    </p>
+                    <br><br>
+
+
+
+
+                    <h4 id="example">Example</h4>
+                    <p>
+                
+                    <h5>Define An Array</h5>
+                    <pre>
+                        <code class="php">
+/**
+* Define an Array
+*/
+Ness\Tool\ObjectMapper::MapNew("db_connection_string",
+                                    array("username"=>"uname",
+                                            "password"=>"pw",
+                                            "hostname"=>"localhost"));
+
+
+/**
+* Get array value from ObjectMapper
+*/
+$data = Ness\Tool\ObjectMapper::GetValue("db_connection_string");
+                        </code>
+                    </pre>
+
+
+                    <h5>Define A String/Integer/Bool/etc</h5>
+                    <pre>
+                        <code class="php">
+/**
+* Define Variables
+*/
+Ness\Tool\ObjectMapper::MapNew("my_int", 28);
+Ness\Tool\ObjectMapper::MapNew("my_str", "Twenty Eight");
+Ness\Tool\ObjectMapper::MapNew("my_bool", true);
+
+
+
+/**
+* Get value from ObjectMapper
+*/
+$data_1 = Ness\Tool\ObjectMapper::GetValue("my_int");
+$data_2 = Ness\Tool\ObjectMapper::GetValue("my_str");
+$data_3 = Ness\Tool\ObjectMapper::GetValue("my_bool");
+                        </code>
+                    </pre>
+
+
+                    <h5>Define An Object</h5>
+                    <pre>
+                        <code class="php">
+class test_class{
+    public $data = 'Message';
+    function __construct()
+    {
+        //Codes
+    }
+};          
+                        </code>
+
+                        <code class="php">
+/**
+* Define
+*/
+$class = new test_class();
+Ness\Tool\ObjectMapper::MapNew("my_class", $class);
+
+
+/**
+* Get 
+*/
+$data_1 = Ness\Tool\ObjectMapper::GetValue("my_class");
+                        </code>
+
+                        
+                    </pre>
+                    </p>
+                    <br><br>
+
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

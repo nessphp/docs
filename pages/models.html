@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Models
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Model
+                                            <!-- <ul><li>Library</li></ul> -->
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness</span>\Model
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">About Models</a></li>
+                                    <li><a href="#load">Load Models</a></li>
+                                    <li><a href="#example">Example Model</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Models</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">About Models</h4>
+                    <p>
+                        Model is a class which designed to help you with information in your database. We can call it 'Hand' of human body, because when you request a data they should bring information from database. Also when you say to a model to hold this information untill I put it to database, model classes should hold that information. 
+                        All your model class files must be located in 'model' folder, Ness framework look this directory for autoloading a model file. You can read more about <a href="structure.html">folder structure</a> 
+
+                        <br><br>
+
+                        <div class="alert alert-warning">
+                            <strong>Remember</strong> It is not required but recommended to save your models with Model suffix. Because when you call a Model called User.php from a controller called User.php they both will have a class User.
+                        </div>
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="load">Load Models</h4>
+                    <p>
+                        Load is a static method to locate and load a model. 
+                        <br><br>
+
+                        <pre><code class="php">Model::Load(string $prm_file);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Load model when not autoloading</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$prm_file String; File name of your model file.</td>
+                        </tr>
+                        </table><br><br><br>
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="example">Example Model</h4>
+                    <p>
+                        This UserModel should be saved in app_folder/Application/Model/UserModel.php 
+
+                        <br><br>
+                        <pre>
+                            <code class="php">                                   
+class UserModel
+{
+    public $name;
+    public $surname;
+    public $email;
+    public $password;
+    public $role;
+    public $registerdate;
+    public $__id;
+
+
+    public function Save()
+    {
+        //database codes...
+    }
+    public function Update()
+    {
+        //database codes...
+    }
+    public function Delete()
+    {
+        //database codes...
+    }
+
+    public function Show()
+    {
+        //database codes...
+    }
+}
+                            </code>
+                        </pre>
+
+                        <div class="alert alert-info">
+                            <strong>Information</strong> Variable names in model should be same with the form's field names to fill automatically the model.
+                        </div>
+                    </p>
+                    <br><br>
+
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

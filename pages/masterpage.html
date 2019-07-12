@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Template Engine & Master Pages
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">UI
+                                            <ul><li>Page</li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\UI</span>\Page
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">About Template Engine</a></li>
+                                    <li><a href="#newmasterpage">Create Master Pages</a></li>
+                                    <li><a href="#inheritance">Template Inheritance</a></li>
+                                    <li><a href="#logic">How Template Engine Works</a></li>
+                                    <li><a href="#telang">Template Engine Language</a></li>
+                                    <li><a href="#methods">Methods</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Template Engine & Master Pages</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">About Template Engine &amp; Master Pages</h4>
+                    <p>
+                        Ness PHP's master pages allows you to create layouts for your web pages in your application.It is designed to eliminate the need to write the same html code for each repetitive design every time.Once you design a template, you can easily relate it to all the pages and accelerate your coding experience to twice that. This topic can be thought of as the continuation of the 'View' topic you can read more about views <a href="views.html">Here</a>
+                    </p>
+                    <br><br>
+
+
+
+                    <h4 id="newmasterpage">Create New Master Pages</h4>
+                    <p>
+                        You can create unlimited master pages for your application for using them later with view files. All your master pages should be located in '<span class="ug-code ug-keyword">Template</span>' directory which can be found in Application root. For example you can create two master pages one for backend(admin panel) and one for front-end (user-area) and switch between them while creating new views using the master pages you have created.
+                        <br><br>
+
+                        Here is a simple example for a Master Page definition. Save this file as adminpanel_master.php in Template directory.
+                        <pre>
+                            <code class="html">
+&#x3C;!DOCTYPE html&#x3E;
+&#x3C;html&#x3E;
+&#x3C;head&#x3E;
+&#x9;&#x3C;title&#x3E;{@page_title} - Simple Blog&#x3C;/title&#x3E;
+&#x9;&#x3C;link rel=&#x22;stylesheet&#x22; type=&#x22;text/css&#x22; href=&#x22;&#x3C;?= Ness\ContentManager::getStyleSheet(&#x22;style.css&#x22;);?&#x3E;&#x22;&#x3E; 
+
+&#x3C;/head&#x3E;
+&#x3C;body&#x3E;
+
+&#x3C;div class=&#x22;menu&#x22;&#x3E;
+&#x9;&#x3C;ul&#x3E;
+&#x9;&#x9;&#x3C;li&#x3E;
+&#x9;&#x9;&#x9;&#x3C;a href=&#x22;#&#x22;&#x3E;Dashboard&#x3C;/a&#x3E;
+&#x9;&#x9;&#x9;&#x3C;a href=&#x22;#&#x22;&#x3E;Profile&#x3C;/a&#x3E;
+&#x9;&#x9;&#x9;&#x3C;a href=&#x22;#&#x22;&#x3E;Create User&#x3C;/a&#x3E;
+&#x9;&#x9;&#x9;&#x3C;a href=&#x22;#&#x22;&#x3E;Edit Posts&#x3C;/a&#x3E;
+&#x9;&#x9;&#x3C;li&#x3E;
+&#x9;&#x3C;/ul&#x3E;
+
+&#x3C;?php 
+&#x9;/**
+&#x9; * This line below must me available in all your master pages.
+&#x9; * echo $this-&#x3E;contents; means your content place holder. Your data in
+&#x9; * views will be loaded here.
+&#x9; */
+&#x9;echo $this-&#x3E;contents;
+?&#x3E;
+
+
+
+&#x3C;div class=&#x22;footer&#x22;&#x3E;
+&#x9;&#x3C;h4&#x3E;(C) Ness Tutorials - Sinan SALIH &#x3C;/h4&#x3E;
+&#x3C;/body&#x3E;
+&#x3C;/html&#x3E;
+                            </code>
+                        </pre>
+
+
+                        As you can realise there is basic design for our admin panel with menu, footer and a code line like; <span class="ug-code ug-keyword">echo $this->contents;</span> this code snippet is required for the inheritance. When you create a new sub-view from the template all codes (HTML+PHP) in your View/viewfile.php will be parsed and placed in the line where $this->contents is printed.
+                    </p>
+                    <br><br>
+
+
+
+                    <h4 id="inheritance">Template Inheritance</h4>
+                    <p>
+                            Using templates in Ness PHP is extremely easy. Just create a new view file and specify the master page you have created.
+                            <pre>
+                                <code class="html">
+&#x3C;?php
+    $page = new Ness\UI\Page();
+    $page-&#x3E;setLayout(&#x27;adminpanel_master.php&#x27;);
+    $page-&#x3E;BeginContent();
+?&#x3E;
+&#x3C;!-- PAGE CONTENT STARTS --&#x3E;
+
+
+&#x3C;!-- YOUR HTML/PAGE CONTENTS FOR THIS PAGE --&#x3E;
+
+
+
+&#x3C;!-- PAGE CONTENT ENDS --&#x3E;
+&#x3C;?php
+    $page-&#x3E;EndContent();
+?&#x3E;
+                                </code>
+                            </pre>
+
+                        As you can use we are using adminpanel_master.php template file. All contents between <br>
+                        <pre><code class="php">$page-&#x3E;BeginContent();</code></pre> and
+                        <pre><code class="php">$page-&#x3E;EndContent();</code></pre> will be parsed and put in the template file 
+                        where the 
+                        <pre><code class="php">echo $this-&#x3E;contents;</code></pre> is defined in adminpanel_master.php
+                    </p>
+                    <br><br>
+
+
+
+                    <h4 id="logic">How Template Engine Works</h4>
+                    <p>
+                       <center>
+                           <img src="../assets/images/telogic.png" class="code-desc"/>
+                       </center>
+                    </p>
+                    <br><br>
+
+
+
+                    <h4 id="telang">Template Engine Language</h4>
+                    <p>
+                            If you want to use template engine, you need to follow some rules. Some of them are like the ones below
+
+                            <ol>
+                                <li>
+                                    <span class="ug-code ug-method">Content Place Holder</span>  Please do not forget to define and print <code>$this->contents</code> variable where you want to put your view's html contents.
+                                </li>
+                                <br><br>
+                                <li>
+                                    <span class="ug-code ug-method">Define Parameters</span>  If you want to set parameters between layouts and views, you need to type <code>{@parameter1}</code> in your layout file. You can set a value for your parameters by typing <code>$view_variable->SetParameter("parameter1", "my value is..");</code>
+                                </li>
+                                <br><br>
+                                <li>
+                                    <span class="ug-code ug-method">Page Title</span>  You can set a different title for every view. You can complete this task by setting a parameter but also if you type  <code>echo $this->title;</code> on your template file you can use and set a title by SetTitle command
+                                </li>
+                            </ol>
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="methods">Methods</h4>
+                    <p>
+                       
+                         <!---->
+                         <h5>SetLayout</h5>
+                         <pre><code class="php">$view->SetLayout(string  $prm_file);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Use a template file in your views with this command</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">Void</td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">$prm_file String; File name of master page</td>
+                         </tr>
+                         </table><br><br><br>
+
+
+
+                          <!---->
+                          <h5>SetParameter</h5>
+                          <pre><code class="php">$view::SetParameter(string  $prm_name,string  $prm_value );</code></pre>
+                          <table class="code-desc">
+                          <tr>
+                              <td colspan="3">Set content for parameter defined in template page.</td>
+                          </tr>
+                          <tr>
+                              <td>Return</td>
+                              <td colspan="2">Void</td>
+                          </tr>
+                          <tr>
+                              <td>Parameters</td>
+                              <td colspan="2">$prm_name String; Parameter name available in template<br>
+                                              $prm_value String; Value to set for the parameter</td>
+                          </tr>
+                          </table><br><br><br>
+
+
+
+                          <!---->
+                         <h5>SetParameterNull</h5>
+                         <pre><code class="php">$view->SetParameterNull(string  $prm);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Set null value to unused parameter in template files</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">Void</td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">$prm String; Parameter name</td>
+                         </tr>
+                         </table><br><br><br>
+
+
+
+                         <!---->
+                         <h5>SetTitle</h5>
+                         if you do not use parameters for setting title you can use this function. Remember <span class="ug-code ug-folder">&#x3C;?php echo $this-&#x3E;title; ?&#x3E;</span> must be defined in template. 
+                         <br><br>
+                         <pre><code class="php">$view->SetTitle(string  $title);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Set a title for an inheritanced view</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">Void</td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">$title String; Title set for the page</td>
+                         </tr>
+                         </table><br><br><br>
+
+
+                         
+
+                          <!---->
+                          <h5>insertWidget</h5>
+                          <pre><code class="php">Page::insertWidget(string  $prm);</code></pre>
+                          <table class="code-desc">
+                          <tr>
+                              <td colspan="3">Include a widget from Application/Content/widget path</td>
+                          </tr>
+                          <tr>
+                              <td>Return</td>
+                              <td colspan="2">Object</td>
+                          </tr>
+                          <tr>
+                              <td>Parameters</td>
+                              <td colspan="2">$prm String; File name; ex: widget.html</td>
+                          </tr>
+                          </table><br><br><br>
+
+
+                            <!---->
+                            <h5>BeginContent() & EndContent()</h5>
+                            <p>
+                                Start and Finish content definitions for view files when using a template.
+                            
+                            <pre><code class="html">
+$view->BeginContent();
+
+    ...
+    ..
+    .
+    Contents Here
+    .
+    ..
+    ...
+
+$view->EndContent();
+                            </code></pre>
+                            </p>
+ 
+
+                    </p>
+                    <br><br>
+
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

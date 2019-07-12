@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  MySql Database Connection
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Autopulse
+                                            <ul><li>MySqlConnect</li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\Autopulse</span>\MySqlConnect
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#getting-started">Gettin Started</a></li>
+                                    <li><a href="#using-mysqldatabase">Using MySql Database</a></li>
+                                    <li><a href="#create-connection">Create A Connection</a></li>
+                                    <li><a href="#connection-source">Connection Source</a></li>
+                                    <li><a href="#connection-check">Check COnnection</a></li>
+                                    <li><a href="#connection-errors">Last Error</a></li>
+                                    <li><a href="#connection-open">Reconnect</a></li>
+                                    <li><a href="#connection-close">Close a Connection</a></li>
+                                    <li><a href="#example">Example</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">MySql Database Connection</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="getting-started">Getting Started</h4>
+                    <p>
+                        Ness PHP Framework uses libraries derived from PHP's PDO library for database 
+                        operations. There are currently classes for MySQL databases that are frequently 
+                        preferred by developers. However, Ness PHP supports all databases supported by the 
+                        PHP PDO plugin. All you need to do is specify the required connection string at the 
+                        time the class is derived. This article is followed by articles describing all these 
+                        operations and showing the use of the functions.You can use MySql connections 
+                        with the MySqlConnect class and use the dbConnect class for all other PDO-enabled 
+                        transactions.Once you have successfully defined your connection, you can run your 
+                        queries using the <a href="mysqlCommand.html">MySqlCommand</a> or <a href="dbconnect.html">dbCommand + dbConnect</a> classes.
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="using-mysqldatabase">Using MySql Database</h4>
+                    <p>
+                        This library is used to manage your mysql connections.  
+
+
+                        <h5 id="create-connection">Create a Connection</h5>
+                        <p>
+                            You can create your connection in construct when you define your database variable.
+                            <pre>
+                                <code class="php">$connection = new MySqlConnect($host, $user, $pass, $db, $options);</code>
+                            </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Create a new connection</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Object</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$host String; Connection Host<br>
+                                $user String; Username of connection<br>
+                                $pass String; Password for connection<br>
+                                $db String; Database name<br>
+                                $options Array <i>Optional</i>;PHP PDO Options</td>
+                        </tr>
+                        </table><br><br><br>
+
+                        </p>
+                        <br><br><br>
+
+
+                        <!---->
+                        <h5 id="connection-source">Connection Source</h5>
+                        <p>
+                            This function is used to return an active database connection.
+                            <pre>
+                                <code class="php">$connection->Source();</code>
+                            </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get an active connection for using with MySqlCommand class.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">PDO Connection</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table><br><br><br>
+
+
+
+
+                        
+                        <!---->
+                        <h5 id="connection-check">Check Connection</h5>
+                        <p>
+                            Check if connection is available
+                            <pre>
+                                <code class="php">$connection->isConnected();</code>
+                            </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Check for active connection</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Boolean</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table><br><br><br>
+
+                        </p>
+                        <br><br><br>
+
+
+
+                         
+                        <!---->
+                        <h5 id="connection-errors">Error List</h5>
+                        <p>
+                            Show last connection errors.
+                            <pre>
+                                <code class="php">$connection->lastError();</code>
+                            </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Check for last connection error</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table><br><br><br>
+
+                        </p>
+                        <br><br><br>
+
+
+
+                        
+                         
+                        <!---->
+                        <h5 id="connection-open">Reconnect to Database</h5>
+                        <p>
+                            Reconnect to active database.
+                            <pre>
+                                <code class="php">$connection->Connection($host, $user, $pass, $db, $options);</code>
+                            </pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Create a new connection</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Object</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$host String; Connection Host<br>
+                                $user String; Username of connection<br>
+                                $pass String; Password for connection<br>
+                                $db String; Database name<br>
+                                $options Array <i>Optional</i>;PHP PDO Options</td>
+                        </tr>
+                        </table><br><br><br>
+
+                        </p>
+                        <br><br><br>
+
+
+
+                         <!---->
+                         <h5 id="connection-close">Close an Active COnnection</h5>
+                         <p>
+                             Close connection to active database.
+                             <pre>
+                                 <code class="php">$connection->Close();</code>
+                             </pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Close a connection</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">Boolean</td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">None</td>
+                         </tr>
+                         </table><br><br><br>
+ 
+                         </p>
+                         <br><br><br>
+                    </p>
+                    <br><br>
+
+                    <h4 id="example">Example</h4>
+                    <p>
+                        Lets create a connection to a database called blogdb and print message if connection is available;<br>
+
+
+                        <pre>
+                            <code class="php">
+use Ness\Controller as myController;
+use Ness\Autopulse\MySqlConnect;
+
+
+class indexController extends myController
+{
+    public function indexAction($param = 0)
+    {     
+        $con_str = array("host"=>"localhost",
+                         "password"=>"",
+                         "user"=>"root",
+                         "database-name"=>"blogdb");
+
+        $con = new MySqlConnect($con_str["host"], 
+                                $con_str["user"], 
+                                $con_str["password"], 
+                                $con_str["database-name"]);
+        
+        if($con->isConnected()){
+            echo "Connection Available";
+        }else{
+            echo "Connection Error -: ".$con->lastError();
+        }
+
+    }
+}
+                            </code>
+                        </pre>
+                    </p>
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>
