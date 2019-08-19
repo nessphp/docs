@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  FileSystem Class
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">IO
+                                            <ul><li>FileSystem</li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\IO</span>\FileSystem
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#methods">Methods</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">FileSystem Class</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">About</h4>
+                    <p>
+                        This class is used to run file system related commands.
+                    </p>
+                    <br><br>
+
+
+
+                    <h4 id="methods">methods</h4>
+                    <p>
+                        <!---->
+                        <h5>isAvailable</h5>
+                        <pre><code class="php">FileSystem::isAvailable(String $path);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Check if file is available.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Boolean </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                $path String; File path and file name
+                            </td>
+                        </tr>
+                        </table><br><br><br>
+
+
+
+                        <!---->
+                        <h5>ReadFile</h5>
+                        <pre><code class="php">FileSystem::ReadFile(String $path);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Read all contents of file</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                $path String; File path and file name
+                            </td>
+                        </tr>
+                        </table><br><br><br>
+
+
+
+
+                         <!---->
+                         <h5>WriteFile</h5>
+                         <pre><code class="php">FileSystem::WriteFile(String $path, $contents);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Write all contents to file. Creates a new file if not exists</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">Boolean </td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">
+                                 $path String; File path and file name<br>
+                                 $contents String; Contents to put
+                             </td>
+                         </tr>
+                         </table><br><br><br>
+
+
+
+                         <!---->
+                         <h5>Append</h5>
+                         <pre><code class="php">FileSystem::Append(String $path, $contents);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Append new contents to file (*file must be created with WriteFile)</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">Boolean </td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">
+                                 $path String; File path and file name<br>
+                                 $contents String; Contents to put
+                             </td>
+                         </tr>
+                         </table><br><br><br>
+
+
+                         <!---->
+                        <h5>Delete</h5>
+                        <pre><code class="php">FileSystem::Delete(String $path);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Delete a file if exists</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Boolean </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                $path String; File path and file name
+                            </td>
+                        </tr>
+                        </table><br><br><br>
+
+
+                        <!---->
+                        <h5>Copy</h5>
+                        <pre><code class="php">FileSystem::Copy(String $path, $path_to);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Copy file</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Boolean </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                $path String; File path and file name [source].<br>
+                                $path_to String; File path and file name [target]
+                            </td>
+                        </tr>
+                        </table><br><br><br>
+
+
+
+                        <!---->
+                        <h5>getItemList</h5>
+                        <pre><code class="php">FileSystem::getItemList(String $path, string  $opt = SCANDIR_SORT_NONE )</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get item list</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Array </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                $path String; Directory to list
+                               
+                            </td>
+                        </tr>
+                        </table><br><br><br>
+
+
+
+                        <!---->
+                        <h5>getSize</h5>
+                        <pre><code class="php">FileSystem::getSize(String $path);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get size of file</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Integer </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                $path String; File path and file name
+                            </td>
+                        </tr>
+                        </table><br><br><br>
+
+
+
+                        <!---->
+                        <h5>getPermissions</h5>
+                        <pre><code class="php">FileSystem::getPermissions(String $path);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get permissions for file</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Integer </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                $path String; File path and file name
+                            </td>
+                        </tr>
+                        </table><br><br><br>
+
+
+
+                        <!---->
+                        <h5>getOwner</h5>
+                        <pre><code class="php">FileSystem::getOwner(String $path);</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get owner of file</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Mixed </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                $path String; File path and file name
+                            </td>
+                        </tr>
+                        </table><br><br><br>
+
+
+
+                         <!---->
+                         <h5>getType</h5>
+                         <pre><code class="php">FileSystem::getType(String $path);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Get type of file</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">Mixed </td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">
+                                 $path String; File path and file name
+                             </td>
+                         </tr>
+                         </table><br><br><br>
+
+
+                         <!---->
+                         <h5>getTotalSpace</h5>
+                         <pre><code class="php">FileSystem::getTotalSpace(String $path);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Get total space available in directory</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">Integer </td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">
+                                 $path String; File path
+                             </td>
+                         </tr>
+                         </table><br><br><br>
+
+                    </p>
+                    <br><br>
+
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

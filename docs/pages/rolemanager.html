@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Role Manager & Role Provider
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Security
+                                            <ul><li>RoleManager</li></ul> 
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <br>
+
+                            <ul class="tree">
+                                    <li style="color:#28A745;">Ness
+                                        <ul>
+                                            <li style="color:#fff;">Security
+                                                <ul><li>RoleProvider</li></ul> 
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\Security</span>\RoleManager
+
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\Security</span>\RoleProvider
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">About Role Manager</a></li>
+                                    <li><a href="#create">Methods</a></li>
+                                    <li><a href="#clear">Example</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Role Manager & Role Provider</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">About Role Manager &amp; Role Provider</h4>
+                    <p>
+                        <h5>Role Provider</h5>
+                        This class is used to provide roles from database and set them in application register function. Role Manager class will access available roles and manage controller or Action permissions. 
+
+
+
+                        <h5>Role Manager</h5>
+                        A basic role mananer class for Ness Framework. You can get available roles from database and set them in application register function, to manage user accesses to specific controllers. 
+                    </p>
+                    <br><br>
+
+
+
+                    <h4 id="methods">Methods</h4>
+                    <p>
+                         <!---->
+                         <h5>FillRoles</h5>
+                         <pre><code class="php">RoleProvider::FillRoles(Array  $roles);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">This function is used to fill roles with id and value from database. This is necessary for using role manager class.</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">void</td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">$roles Array; Set all roles to role provider class. Array key is id in database and value is a named provision of role 
+                                    You need to fill all roles in Application / Register()</td>
+                         </tr>
+                         </table><br><br><br>
+
+
+
+
+                         <!---->
+                         <h5>RequiredRoles</h5>
+                         <pre><code class="php">RoleProvider::RequiredRoles(Array  $roles);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">This function is used to set required roles for controller or controller action. If you want to affect a whole controller with set role you must setup role manager in construct method.</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">void</td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">$roles Array; Required roles for a action in a controller or in whole controller.</td>
+                         </tr>
+                         </table><br><br><br>
+
+
+
+                         <!---->
+                         <h5>ProvidedRoles</h5>
+                         <pre><code class="php">RoleProvider::ProvidedRoles(Array  $roles);</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">This function is User's provided roles. Can be filled from database. Later you will have the opportunity to check it with isAuthorized method.</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">void</td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">$roles Array; provided roles for user.</td>
+                         </tr>
+                         </table><br><br><br>
+
+                         <hr>
+
+
+
+                          <!---->
+                          <h5>isAuthorized</h5>
+                          <pre><code class="php">RoleManager::isAuthorized();</code></pre>
+                          <table class="code-desc">
+                          <tr>
+                              <td colspan="3">Checks if user is authorized.</td>
+                          </tr>
+                          <tr>
+                              <td>Return</td>
+                              <td colspan="2">Boolean</td>
+                          </tr>
+                          <tr>
+                              <td>Parameters</td>
+                              <td colspan="2">None</td>
+                          </tr>
+                          </table><br><br><br>
+
+
+                          <!---->
+                          <h5>ClearRequired</h5>
+                          <pre><code class="php">RoleManager::ClearRequired();</code></pre>
+                          <table class="code-desc">
+                          <tr>
+                              <td colspan="3">Clear All required roles.</td>
+                          </tr>
+                          <tr>
+                              <td>Return</td>
+                              <td colspan="2">None</td>
+                          </tr>
+                          <tr>
+                              <td>Parameters</td>
+                              <td colspan="2">None</td>
+                          </tr>
+                          </table><br><br><br>
+
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="example">About Logs</h4>
+                    <p>
+                            Let's say you have a Index controller and IndexAction, and 3 roles(User, Administrator, Guest) available totally. You have a 'x' user which has roles, (Guest, User) and wants to access IndexAction which requires role 'Administrator'. For checking if your user 'x' can access to IndexAction you need to do followings; 
+
+
+                            <ol>
+                                <li>Setup All Roles in Application Register</li>
+                                <li>Do a control in Index controller and IndexAction</li>
+                                <li>If Not Authorized show message or redirect.</li>
+                            </ol>
+
+
+                            <br><br>
+
+                            <b>Application Confiuration; app_config.php</b>
+                            <pre>
+                                <code class="php">
+
+/***********************************************
+*	Application Class
+*/
+
+class Application
+{
+
+    /**
+        * This function is called automatically by framework on entry...
+        * You can do all your global object definitions or user-based settings...
+        */
+public function Register()
+{
+        //Fill Roles
+        //We are filling manually, but you can get all roles from your database.
+        $data_set = array("1"=>"User", "2"=>"Administrator", "3"=>"Guest");
+        RoleProvider::FillRoles($data_set);
+        
+    }
+
+}
+                                </code>
+                            </pre>
+
+
+
+                            <br><br>
+
+
+
+                            <b>Controller Configuration; Controller/indexController.php</b>
+                            <pre>
+                                <code class="php">
+class indexController extends Ness/Controller{
+
+    public function __construct() {
+        parent::__construct();
+        
+        //You can get required roles from database we will give manually in this example.
+        RoleProvider::RequiredRoles(array("2"=>"Administrator"));
+        
+        //User's roles: you can get them from your database we will fill manually...
+        
+        RoleProvider::ProvidedRoles(array("1"=>"User"));
+        
+        //now make the controls. You can block all contents of a controller or you can
+        //allow your user some Actions. We will block our user to access index page.
+    }
+
+    public function IndexAction($param=0){
+            
+        if(RoleManager::isAuthorized())
+        {
+            $this->View->Render("index.php");
+        }else{
+            echo "You are not allowed";
+            exit();
+            //Do redirections or anything else;
+        }    
+    }
+}
+                                </code>
+                            </pre>
+
+                            <br><br>
+
+                            <div class="alert alert-info">
+                                    <strong>Reminder: </strong>; In indexController.php controller RoleManager checks authorization for IndexAction, but you can control it in __construct and block all Controller actions.
+                            </div>
+                    </p>
+                    <br><br>
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

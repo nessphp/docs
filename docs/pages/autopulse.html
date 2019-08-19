@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  AutoPulse; A simple CRUD Library
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Autopulse
+                                            <ul><li>Autopulse</li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\Autopulse</span>\Autopulse
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">AutoPulse; A simple CRUD Library</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+                    <br>
+                    <div class="alert alert-info">
+                        <strong>Database Connection </strong> All methods and commands in this library requires an active database connection. You can define your connection witg MySqlConnect or DbConnect class. You can read more about
+                        connecting a database <a href="mysql.html">Here </a> or <a href="dbconnect.html">Here </a> </span>
+                    </div>
+
+                    <ol class="ug-tocs">
+                            <li><a href="#pagedescription">Autopulse Library</a></li>
+                            <li>Methods
+                                <ol class="ug-tocs">
+                                <li><a href="#LoadModel">LoadModel()</a></li>
+                                <li><a href="#LoadArray">LoadArray()</a></li>
+                                <li><a href="#Update">Update()</a></li>
+                                <li><a href="#Delete">Delete()</a></li>
+                                <li><a href="#DeleteWithModel">DeleteWithModel()</a></li>
+                    
+                                
+                                </ol>
+                            </li>
+                            <li><a href="#example">Example</a></li>
+                            
+                    
+                        </ol>
+                        <br>
+                        <!-- CONTENT START -->
+                    
+                        <br><br>
+                        <h4 id="pagedescription">Database: Autopulse Library</h4>
+                        <p>
+                            With this library you can easily access and manage your database.
+                            <br><br>
+                            This class, contains functions that make it easier to process your data. AutoPulse will save you writing complex dml queries. The only think you need is to call required function.
+                            <br>
+                        </p>
+                    
+                    
+                        
+                    
+                        <br>
+                        <h3 id="LoadModel">LoadModel()</h3>
+                        <p>
+                        This function is used to load a model class directly to your database.
+                        <pre><code class="php">Autopulse::LoadModel(Mixed $modelForm, DbConnect | MySqlConnect  $dbclassinstance);</code>
+                    </pre><br>
+                    <span class="ug-keyword ug-code ug-bold">$modelForm</span>: Model class posted from view <br>
+                    <span class="ug-keyword ug-code ug-bold">$dbclassinstance</span>: An active database connection source.
+                    
+                    <br>
+                    <div class="alert alert-warning">
+                        <strong>Warning </strong> If you want to use LoadModel method, your model Class name must be same with your table name and variables defined in model class must be same with column names in your table.</span>
+                    </div>
+                </p>
+                
+                    
+                    
+                    
+                        <h3 id="LoadArray">LoadArray()</h3>
+                        <p>
+                        This function is used to load an array to your database.
+                        <pre><code class="php">Autopulse::LoadArray(String  $tableName = '', Array  $fieldList,  DbConnect | MySqlConnect  $dbclassinstance);</code></pre>
+                    <span class="ug-keyword ug-code ug-bold">$tableName</span>: Table name <br>
+                    <span class="ug-keyword ug-code ug-bold">$fieldList</span>: Fields with values. array key must be column name of table.<br>
+                    <span class="ug-keyword ug-code ug-bold">$dbclassinstance</span>: An active database connection source.<br>
+                        </p>
+                    
+                    
+                            <h3 id="Update">Update()</h3>
+                        <p>
+                        Update a data using arrays
+                        <pre><code class="php">Autopulse::Update(Mixed   $tableName, Array   $fieldList = null, String   $whereOption = null,   DbConnect | MySqlConnect $dbclassinstance);</code></pre>
+                    <span class="ug-keyword ug-code ug-bold">$tableName</span>: Table name to update. <br>
+                    <span class="ug-keyword ug-code ug-bold">$fieldList</span>: Fields with values. array key must be column name of table.<br>
+                    <span class="ug-keyword ug-code ug-bold">$whereOption</span>: Update where...<br>
+                    <span class="ug-keyword ug-code ug-bold">$dbclassinstance</span>: An active database connection source.<br>
+                        </p>
+                        
+                    
+                    
+                        
+                        <h3 id="Delet">Delete()</h3>
+                        <p>
+                        Delete from database
+                        <pre>
+                            <code class="php">Autopulse::Delete(Mixed   $TableName, DbConnect | MySqlConnect $dbclassinstance,String   $whereOption = null);</code>
+                        </pre>
+                    <span class="ug-keyword ug-code ug-bold">$TableName</span>: Table name to delete from. <br>
+                    <span class="ug-keyword ug-code ug-bold">$whereOption</span>: Update where...<br>
+                    <span class="ug-keyword ug-code ug-bold">$dbclassinstance</span>: An active database connection source.<br>
+                        </p>
+                        
+
+                    
+                        <h3 id="DeleteWithModel">DeleteWithModel()</h3>
+                        <p>
+                        Delete from database
+                        <pre>
+                            <code class="php">Autopulse::Delete(Mixed   $modelForm, DbConnect | MySqlConnect $dbclassinstance,String   $whereOption = null);</code>
+                        </pre>
+                    <span class="ug-keyword ug-code ug-bold">$modelForm</span>: Model Form, Autopulse library use this for getting table name from class name. <br>
+                    <span class="ug-keyword ug-code ug-bold">$whereOption</span>: Update where...<br>
+                    <span class="ug-keyword ug-code ug-bold">$dbclassinstance</span>: An active database connection source.<br>
+                        </p>
+                        
+                    
+                        <h3 id="example">Example</h3>
+                        <p>
+                        Let's create a Autopulse command to insert an array to "User" table.
+                    
+                    <pre><code class="php">
+use Ness\Autopulse\Autopulse;
+/** 
+* OTHER CODES
+**/  
+
+$cons = omap::GetValue("database_1");
+
+$myconnnection = new MySqlConnect($cons["host"],$cons["user"],$cons["password"],$cons["database"]);
+    $myUser = array("userid"=>null,
+                    "name"=>"Example",
+                    "surname"=>"RECORD",
+                    "email"=>"test@test.com");
+    
+    if(Autopulse::LoadArray("user", $myUser, $myconnnection->Source()))
+    {
+        echo "User Saved";
+    }else{
+        echo "Error while saving user";
+    }
+            </code>
+                    </pre>
+                        </p>
+                    <br><br>
+
+            
+                </div>
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

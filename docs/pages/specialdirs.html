@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Special Directories
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">IO
+                                            <ul><li>SpecialDirectories</li></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness\IO</span>\SpecialDirectories
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">About</a></li>
+                                    <li><a href="#methods">Methods</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Special Directories</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">About</h4>
+                    <p>
+                            This library contains functions which provides you access to special application directories like controller folder, view folder etc..
+                    </p>
+                    <br><br>
+
+
+
+                    <!---->
+                    <h4>ApplicationFolder</h4>
+                    <p>
+                        <pre><code class="php">SpecialDirectory::ApplicationFolder()</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">Get where application is running from.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String </td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">
+                                None
+                            </td>
+                        </tr>
+                        </table><br>
+                    </p>
+                    <br><br>
+
+
+
+                     <!---->
+                     <h4>FrameworkFolder</h4>
+                     <p>
+                         <pre><code class="php">SpecialDirectory::FrameworkFolder()</code></pre>
+                         <table class="code-desc">
+                         <tr>
+                             <td colspan="3">Get path for Ness Framework's system files</td>
+                         </tr>
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">String </td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">
+                                 None
+                             </td>
+                         </tr>
+                         </table><br>
+                     </p>
+                     <br><br>
+
+                     
+                      <!---->
+                      <h4>ControllerFolder</h4>
+                      <p>
+                          <pre><code class="php">SpecialDirectory::ControllerFolder()</code></pre>
+                          <table class="code-desc">
+                          <tr>
+                              <td colspan="3">Get path for Controller directory</td>
+                          </tr>
+                          <tr>
+                              <td>Return</td>
+                              <td colspan="2">String </td>
+                          </tr>
+                          <tr>
+                              <td>Parameters</td>
+                              <td colspan="2">
+                                  None
+                              </td>
+                          </tr>
+                          </table><br>
+                      </p>
+                      <br><br>
+ 
+
+                      
+                      <!---->
+                      <h4>ConfigFolder</h4>
+                      <p>
+                          <pre><code class="php">SpecialDirectory::ConfigFolder()</code></pre>
+                          <table class="code-desc">
+                          <tr>
+                              <td colspan="3">Get path for Config directory</td>
+                          </tr>
+                          <tr>
+                              <td>Return</td>
+                              <td colspan="2">String </td>
+                          </tr>
+                          <tr>
+                              <td>Parameters</td>
+                              <td colspan="2">
+                                  None
+                              </td>
+                          </tr>
+                          </table><br>
+                      </p>
+                      <br><br>
+                      
+
+
+                      <!---->
+                      <h4>LibraryFolder</h4>
+                      <p>
+                          <pre><code class="php">SpecialDirectory::LibraryFolder()</code></pre>
+                          <table class="code-desc">
+                          <tr>
+                              <td colspan="3">Get path for Library directory</td>
+                          </tr>
+                          <tr>
+                              <td>Return</td>
+                              <td colspan="2">String </td>
+                          </tr>
+                          <tr>
+                              <td>Parameters</td>
+                              <td colspan="2">
+                                  None
+                              </td>
+                          </tr>
+                          </table><br>
+                      </p>
+                      <br><br>
+
+
+                       <!---->
+                       <h4>LanguageFolder</h4>
+                       <p>
+                           <pre><code class="php">SpecialDirectory::LanguageFolder()</code></pre>
+                           <table class="code-desc">
+                           <tr>
+                               <td colspan="3">Get path for Language directory</td>
+                           </tr>
+                           <tr>
+                               <td>Return</td>
+                               <td colspan="2">String </td>
+                           </tr>
+                           <tr>
+                               <td>Parameters</td>
+                               <td colspan="2">
+                                   None
+                               </td>
+                           </tr>
+                           </table><br>
+                       </p>
+                       <br><br>
+                      
+
+
+                         <!---->
+                         <h4>ModelFolder</h4>
+                         <p>
+                             <pre><code class="php">SpecialDirectory::ModelFolder()</code></pre>
+                             <table class="code-desc">
+                             <tr>
+                                 <td colspan="3">Get path for Model directory</td>
+                             </tr>
+                             <tr>
+                                 <td>Return</td>
+                                 <td colspan="2">String </td>
+                             </tr>
+                             <tr>
+                                 <td>Parameters</td>
+                                 <td colspan="2">
+                                     None
+                                 </td>
+                             </tr>
+                             </table><br>
+                         </p>
+                         <br><br>
+
+
+
+                          <!---->
+                          <h4>OutputFolder</h4>
+                          <p>
+                              <pre><code class="php">SpecialDirectory::OutputFolder()</code></pre>
+                              <table class="code-desc">
+                              <tr>
+                                  <td colspan="3">Get path for Output directory</td>
+                              </tr>
+                              <tr>
+                                  <td>Return</td>
+                                  <td colspan="2">String </td>
+                              </tr>
+                              <tr>
+                                  <td>Parameters</td>
+                                  <td colspan="2">
+                                      None
+                                  </td>
+                              </tr>
+                              </table><br>
+                          </p>
+                          <br><br>
+
+
+                           <!---->
+                           <h4>TemplateFolder</h4>
+                           <p>
+                               <pre><code class="php">SpecialDirectory::TemplateFolder()</code></pre>
+                               <table class="code-desc">
+                               <tr>
+                                   <td colspan="3">Get path for Template directory</td>
+                               </tr>
+                               <tr>
+                                   <td>Return</td>
+                                   <td colspan="2">String </td>
+                               </tr>
+                               <tr>
+                                   <td>Parameters</td>
+                                   <td colspan="2">
+                                       None
+                                   </td>
+                               </tr>
+                               </table><br>
+                           </p>
+                           <br><br>
+
+
+
+                           <!---->
+                           <h4>ViewFolder</h4>
+                           <p>
+                               <pre><code class="php">SpecialDirectory::ViewFolder()</code></pre>
+                               <table class="code-desc">
+                               <tr>
+                                   <td colspan="3">Get path for View directory</td>
+                               </tr>
+                               <tr>
+                                   <td>Return</td>
+                                   <td colspan="2">String </td>
+                               </tr>
+                               <tr>
+                                   <td>Parameters</td>
+                                   <td colspan="2">
+                                       None
+                                   </td>
+                               </tr>
+                               </table><br>
+                           </p>
+                           <br><br>
+
+
+                           <!---->
+                           <h4>ContentFolder</h4>
+                           <p>
+                               <pre><code class="php">SpecialDirectory::ContentFolder()</code></pre>
+                               <table class="code-desc">
+                               <tr>
+                                   <td colspan="3">Get path for Content directory</td>
+                               </tr>
+                               <tr>
+                                   <td>Return</td>
+                                   <td colspan="2">String </td>
+                               </tr>
+                               <tr>
+                                   <td>Parameters</td>
+                                   <td colspan="2">
+                                       None
+                                   </td>
+                               </tr>
+                               </table><br>
+                           </p>
+                           <br><br>
+
+
+            
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>

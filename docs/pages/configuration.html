@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ness PHP Framework | Documentation</title>
+        <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/style.css"> 
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="../assets/js/highlightjs/styles/atom-one-dark.css">
+        <script src="../assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>      
+</head>
+<body>
+    
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top bg-light bg-white kb" style="z-index: 1;">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/images/ness_logo.png" title="Ness PHP Framework Documentation" >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="../index.html">Home</a>
+                </li>  
+                
+                <li class="nav-item">
+                    <a class="nav-link account-link" href="https://www.github.com/nessphp" target="_blank">GitHub</a>
+                    </li>  
+    
+                    <li class="nav-item">
+                    <a class="nav-link account-link" href="https://nessphp.github.io/" target="_blank">Ness PHP</a>
+                    </li>  
+            </ul>
+        </div>
+        </div>
+    </nav>
+<!-- [][][] CONTENTS STARTS HERE [][][] -->
+<div class="main-contents">
+        <!-- SEARCH AREA -->
+        <br>
+        <div class="row">
+            <div class="col-md-7">   
+                
+                    <div class="nav-board">
+                        <a href="../index.html">Documentation</a> >  Project Configuration
+                    </div>
+            </div>
+            <div class="col-md-5">
+                <!-- EMPTY -->
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <!-- --------------------- EDIT HERE--------------------- -->
+            
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">Required Namespace</div>
+                        <div class="card-body" >
+                            <ul class="tree">
+                                <li style="color:#28A745;">Ness
+                                    <ul>
+                                        <li style="color:#fff;">Configuration
+                                            <!-- <ul><li>Library</li></ul> -->
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr>
+                            <span><small>You can include this library to your code file by typing the below code;</small></span>
+                            <br><br>
+                            <span style="color:#3490CF;">use</span> 
+                            <span style="color:#28A745;">Ness</span>\Configuration
+                            
+                        </div> 
+                    </div>
+                    <br><br>
+                    <div class="card bg-light text-dark">
+                        <div class="card-header">Contents</div>
+                        <div class="card-body" style="padding: 0px;">
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#about">About Configuration</a></li>
+                                    <li><a href="#file">Configuration File</a></li>
+                                    <li><a href="#example">Example app_config.php File</a></li>
+                                    <li><a href="#register">Application Register</a></li>
+                                    <li><a href="#methods">Methods</a></li>
+                                    <li><a href="#maintenance">Maintenance Mode</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <!-- docs:start-->
+                <div class="col-md-8">
+                    <br>
+                    <h3 style="font-weight: lighter;">Project Configuration</h3>
+                    <hr>
+                    <br>
+                    <br><br>
+
+                    <h4 id="about">About Configuration</h4>
+                    <p>
+                        Ness PHP controls all system configurations from one point.  This will help you manage your configurations easily and quickly. You can manage all configurations from one point and start as quickly as possible to write the main logic of your project and get rid of unneccesary configurations. Ness PHP also supports multi-config files, write configuration files as your needs and switch between them  according your needs.
+                    </p>
+                    <br><br>
+
+                    <h4 id="file">Configuration File</h4>
+                    <p>
+                        While a request made to Ness PHP, the framework initially loads the configuration file which is app_config.php by default.  You can manage all Url security, app description and title or global variable definitions here.In next topic you can see a sample configuration file which is created by default installation of the framework. Please keep reading the documentation for understanding all basics for the configuration file.
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="example">Example app_config.php File</h4>
+                    <p>
+                        Default app_config.php content and the basic changes you need to made in your installation;
+
+                        <br>
+                        <pre><code class="php">
+&#x3C;?php
+/**
+    * Ness PHP Framework.
+    * A solid php framework for fast and secure web applications.
+    *
+    * @author Sinan SALIH
+    * @license MIT License
+    * @copyright Copyright (C) 2018-2019 Sinan SALIH
+    */
+
+use Ness\Configuration;
+
+/*
+    * === [Environment Configuration ] ===
+    * This configuration is used to set the
+    * development environment for your project.
+    * You can set 2 types of environments;
+    * &#x22;development&#x22; OR &#x22;publish&#x22;
+    */
+Configuration::setEnvironment(&#x27;development&#x27;);
+
+/*
+    * === [Application Folder ] ===
+    * This configuration is generally for security.
+    * If you need to change the folder name of your
+    * application you must set it here.
+    */
+Configuration::setApplicationFolder(&#x27;Application&#x27;);
+
+/*
+    * === [Application Resource Files ] ===
+    * This function is used to set the
+    * path of the resource.xml file which is used
+    * to store static values for your projects(ex; strings, image paths etc)
+    * Note; the core app location (&#x27;Application&#x27; by default) is excluded from the value.
+    */
+Configuration::setResourceFile(&#x27;Resources.xml&#x27;);
+
+/*
+    * === [Application URL ] ===
+    * This configuration is used to set your
+    * web sites url. For example if you create a
+    * application that will be run in root set url to: &#x22;http://www.examplesite.com/&#x22;
+    * If your application will be a sub module/application of other application set it like:
+    * &#x22;http://www.examplesite.com/my_module&#x22;.
+    */
+Configuration::setApplicationUrl(&#x27;http://localhost/nessphp&#x27;);
+
+/*
+    * === [Is Application Root ] ===
+    * If your application&#x27;s url is not accessable by &#x22;www.siteexample.com&#x22;
+    * set this false.
+    */
+Configuration::setRoot(false);
+
+/*
+    * === [ Application Name ] ===
+    * This configuration is used to set name of your application.
+    */
+Configuration::setTitle(&#x27;Hello World&#x27;);
+
+/*
+    * === [ Application Version ] ===
+    * This configuration is used to set version number of your application.
+    */
+Configuration::setVersion(&#x27;1.0.0&#x27;);
+
+/*
+    * === [ Application Description ] ===
+    * This configuration is used to set description of your application.
+    */
+Configuration::setDescription(&#x27;Ness PHP is a solid web framework for fast and secure web applications.&#x27;);
+
+/*
+    * === [ Application Maintenance Mode ] ===
+    * This configuration is used to set maintenance mode of your application.
+    * if Maintenance Mode is enabled user will see a message on screen like 
+    * &#x27;Under Maintenance&#x27;
+    */
+Configuration::enableMaintenance(false);
+
+/**
+    *  === [ Application Url Protection ] ===
+    * Protect your website from unwanted parameters, You can enable 
+    * this feature for preventing visit with unwanted parameters 
+    * supplied in array below.
+    */
+Configuration::setUrlProtected(false);
+Configuration::UnwantedParameters(array(&#x22;&#x27;&#x22;));
+
+
+/**---------------------------------------------------------*/
+/**                  Application Class                      */
+/**---------------------------------------------------------*/
+class Application
+{
+    /**
+        * This method is called when your application is loaded. You can register
+        * your object mappers or do other configurations.
+        */
+    public function Register()
+    {
+
+    }
+}
+                                
+                        </code></pre>
+                    </p>
+                    <br><br>
+
+                    <h4 id="register">Application Register</h4>
+                    <p>
+                        Application Class is an entry point for your code, after the installation of core framework modules the function(s) in this class will be run. You must define this class in a configuration file and only acceptable and auto run function is Register() function. This function is used to register globally variables, set object mappers, set pin checkers etc.
+
+                        <br><br>
+
+                        For example; Your app needs a database connection and you do not want to write username and password in each connection. You can define a object mapper in register function and access globally this variable in every place of your code.
+                        <br><br>
+                        <pre><code class="php">
+&#x3C;?php
+use Ness\Configuration;
+use Ness\Tool\ObjectMapper as omap;
+
+...
+
+
+/**---------------------------------------------------------*/
+/**                  Application Class                      */
+/**---------------------------------------------------------*/
+class Application
+{
+    /**
+        * This method is called when your application is loaded. You can register
+        * your object mappers or do other configurations.
+        */
+    public function Register()
+    {
+        omap::MapNew(&#x22;database&#x22;, array(
+                        &#x22;username&#x22;=&#x3E;&#x22;db_user_name&#x22;,
+                        &#x22;password&#x22;=&#x3E;&#x22;db_pass&#x22;,
+                        &#x22;host&#x22;=&#x3E;&#x22;localhost&#x22;
+        ));
+    }
+}
+                                
+                        </code>
+                        </pre>
+
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="methods">Methods</h4>
+                    <p>
+
+                        <!---->
+                        <h5>setEnvironment</h5>
+                        <pre><code class="php">Configuration::setEnvironment(string $param);</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">This function is used to set development environment.Accepted values: "development", "publish", "default".</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$param String</td>
+                        </tr>
+                        </table>
+                        <br><br><br>
+
+                        <!---->
+                        <h5>setApplicationFolder & getApplicationFolder</h5>
+                        <pre><code class="php">Configuration::setApplicationFolder(string $param);</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">This function is used to set application folder for Ness framework's current config.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$param String</td>
+                        </tr>
+                        </table>
+                        <br>
+                        <pre><code class="php">Configuration::getApplicationFolder();</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">This function is used to return application folder for Ness framework's current config.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table>
+                        <br><br><br>
+
+                        <!---->
+                        <h5>setRoot() & isRoot()</h5>
+                        <pre><code class="php">Configuration::setRoot(Boolean $param);</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">This function is used to determine if your application in server is in root directory or not. Set true if your app will run in root directory</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$param Boolean</td>
+                        </tr>
+                        </table>
+                        <br>
+
+                        <pre><code class="php">Configuration::isRoot();</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">you can use isRoot() to check the option;</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">Boolean</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table>
+                        <br><br><br>
+
+                        <!---->
+                        <h5>setApplicationUrl() & getApplicationUrl()</h5>
+                        <pre><code class="php">Configuration::setApplicationUrl(string $prm="http://localhost/");</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">This function is very important, when you use response and route class your redirect url will be get from here.</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$prm String</td>
+                        </tr>
+                        </table>
+                        <br>
+
+                        <pre><code class="php">Configuration::getApplicationUrl();</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <td colspan="3">you can use getApplicationUrl() to return this value;</td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">String</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">None</td>
+                        </tr>
+                        </table>
+                        <br><br><br>
+
+                         <!---->
+                         <h5>setResourceFile() & getResourceFile()</h5>
+                         Set resource file location of Ness framework.
+ 
+                         <pre><code class="php">Configuration::setResourceFile(string $prm);</code></pre>
+ 
+                         <table class="code-desc">
+                         <tr>
+                             <td>Return</td>
+                             <td colspan="2">void</td>
+                         </tr>
+                         <tr>
+                             <td>Parameters</td>
+                             <td colspan="2">$prm String</td>
+                         </tr>
+                         </table>
+                         <br>
+                         Get the value with
+ 
+                         <pre><code class="php">Configuration::getResourceFile() : string</code></pre>
+                         <br><br><br>
+
+
+                        <!---->
+                        <h5>setUrlProtected() & isUrlProtected()</h5>
+                        This function is used to prevent web site from unwanted url parameters.
+
+                        <pre><code class="php">Configuration::setUrlProtected(Boolean $prm);</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$prm Boolean</td>
+                        </tr>
+                        </table>
+                        <br>
+                        This is a security setting. This setting must be activated in order to protect your web address from the parameters you do not want, and these special characters must be set by the method that follows 
+
+                        <pre><code class="php">Configuration::isUrlProtected() : Boolean</code></pre>
+                        <br><br><br>
+
+
+                        <!---->
+                        <h5>UnwantedParameters()</h5>
+                        Set an array for unwanted characters or words
+
+                        <pre><code class="php">Configuration::UnwantedParameters(Array $prm);</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$prm Array</td>
+                        </tr>
+                        </table>
+                        <br>
+                        Example
+
+                        <pre><code class="php">Configuration::UnwantedParameters(array("'", "_", "~"));</code></pre>
+                        That means if your website gets visited with one of this three parameters user will be redirected.
+                        <br><br><br>
+
+
+                        <!---->
+                        <h5>setTitle() & getTitle()</h5>
+                        This function is used to set a title/name for your project.
+
+                        <pre><code class="php">Configuration::setTitle(string $prm);</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$prm String</td>
+                        </tr>
+                        </table>
+                        <br>
+                        Get the value with
+
+                        <pre><code class="php">Configuration::getTitle() : string</code></pre>
+                        <br><br><br>
+
+
+                        
+                        <!---->
+                        <h5>setVersion() & getVersion()</h5>
+                        This function is used to set a version numer for your project.
+
+                        <pre><code class="php">Configuration::setVersion(string $prm);</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$prm String</td>
+                        </tr>
+                        </table>
+                        <br>
+                        Get the value with
+
+                        <pre><code class="php">Configuration::getVersion() : string</code></pre>
+                        <br><br><br>
+
+
+                        
+                        <!---->
+                        <h5>setDescription() & getDescription()</h5>
+                        This function is used to set a description for your project.
+
+                        <pre><code class="php">Configuration::setDescription(string $prm);</code></pre>
+
+                        <table class="code-desc">
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$prm String</td>
+                        </tr>
+                        </table>
+                        <br>
+                        Get the value with
+
+                        <pre><code class="php">Configuration::getDescription() : string</code></pre>
+                        <br><br><br>
+
+
+                        <!-- 
+                        <h5>AA</h5>
+                        <pre><code class="php">aaa</code></pre>
+                        <table class="code-desc">
+                        <tr>
+                            <th colspan="3">Description</th>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td colspan="2">void</td>
+                        </tr>
+                        <tr>
+                            <td>Parameters</td>
+                            <td colspan="2">$param</td>
+                        </tr>
+                        </table>
+                    -->
+                    </p>
+                    <br><br>
+
+
+                    <h4 id="maintenance">Maintenance Mode</h4>
+                    <p>
+                        This configuration is used to set maintenance mode of your application.if Maintenance Mode is enabled user will see a message on screen like 'Under Maintenance'.
+                        <center>
+                            <img class="code-desc" src="../assets/images/screen_maintenance_mode.png"/>
+                        </center>
+                        <br><br>
+                        Find in your configuration file the line;
+                        <pre><code class="php">Configuration::enableMaintenance(true);</code></pre>
+                        and set true.
+
+                        <div class="alert alert-info">
+                            <strong>Design This Page; </strong> 
+                            <br>The view file for the 'Maintenance Mode' can be found in; 
+                            <span class="ug-code ug-type">[project_folder]/Application/View/systemArea/maintenancemodeView.php</span> <br>
+                            and the controller for managing the maintenance mode can be found in<span class="ug-code ug-type">[project_folder]/Application/Controller/ErrorManagement/MaintenanceMode.php</span> 
+                        </div>
+                    </p>
+                    <br><br>
+
+
+                </div>
+                <!-- docs:end -->
+
+
+            </div>
+
+
+            <!-- [/] ------------------- EDIT HERE------------------- -->
+        </div>
+
+        <br><br><br>
+        <div class="text-center">
+            <span>&copy; Ness PHP Framework <span id="the-x">Ness</span> | All Rights Reserved</span>
+            <br><br>
+        </div>
+    </div>  
+    <!-- [/][/][/] CONTENTS ENDS HERE [][][] --> 
+
+</body>
+</html>
