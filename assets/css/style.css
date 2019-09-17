@@ -198,17 +198,17 @@ body{
 }
 
 .account-link{
-    color: #2E7D32;
+    color: #EE4540;
     font-weight: lighter;
     font-size: larger;
     padding-bottom: 2px;
     border-bottom :2px solid transparent;
 }
 .account-link:hover{
-    color: #2E7D32;
+    color: #EE4540;
     text-decoration: none;
     padding-bottom: 2px;
-    border-bottom: 2px solid #2E7D32;
+    border-bottom: 2px solid #EE4540;
 }
 
 .article_link{
@@ -223,7 +223,7 @@ body{
 }
 
 .article_link:hover{
-    color:#2E7D32;
+    color:#EE4540;
     text-decoration: none;
 }
 
@@ -269,8 +269,8 @@ body{
 }
 
 .menu li a:hover {
-    color: #2E7D32;
-    border-left: 3px solid #2E7D32;
+    color: #EE4540;
+    border-left: 3px solid #EE4540;
 }
 
 
@@ -319,11 +319,11 @@ body{
 }
 
 .search-container input[type=text]:focus {
-    border: 2px solid #2E7D32;
+    border: 2px solid #EE4540;
     border-right: none;
 }
 .search-container input[type=text]:focus + #seachbtn {
-    border: 2px solid #2E7D32;
+    border: 2px solid #EE4540;
     border-left: none;
 }
 
@@ -336,7 +336,7 @@ body{
   background-color: #fff;
   font-size:large;
   font-weight: bold;
-  color:#2E7D32;
+  color:#EE4540;
   border: 2px solid #fff;
   border-left: none;
   cursor: pointer;
@@ -367,11 +367,11 @@ body{
 }
 
 .search-container2 input[type=text]:focus {
-    border: 2px solid #2E7D32;
+    border: 2px solid #EE4540;
     border-right: none;
 }
 .search-container2 input[type=text]:focus + #seachbtn {
-    border: 2px solid #2E7D32;
+    border: 2px solid #EE4540;
     border-left: none;
 }
 
@@ -384,7 +384,7 @@ body{
   background-color: #fff;
   font-size:small;
   font-weight: bold;
-  color:#2E7D32;
+  color:#EE4540;
   border: 2px solid #ddd;
   cursor: pointer;
   transition:ease-in all .2s;
@@ -408,7 +408,7 @@ body{
     text-decoration: none;
     margin-left: 5px;
     margin-right: 5px;
-    border-bottom: 2px solid #2E7D32;
+    border-bottom: 2px solid #EE4540;
 }
 
 .hash-toc{
@@ -431,7 +431,7 @@ body{
     text-decoration: none;
     margin-left: 5px;
     margin-right: 5px;
-    border-bottom: 2px solid #2E7D32;
+    border-bottom: 2px solid #EE4540;
 }
 
 
@@ -486,7 +486,7 @@ img .code-desc{
 }
 h4{
     font-weight: light;
-    color:#2E7D32;
+    color:#EE4540;
 }
 
 
@@ -503,7 +503,7 @@ h4{
 	color:#E23F40;
 }
 .ug-folder{
-	color:#2E7D32;
+	color:#EE4540;
 }
 .ug-file{
 	color:#E91E63;
