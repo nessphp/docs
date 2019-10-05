@@ -3,8 +3,8 @@
 </p>
 
 # Ness PHP Framework | Documentation
+Welcome to Ness PHP Framework. Do you need a web framework with minimized training effort? Ness PHP offers you a model-view-controller based environment for coding faster, safer and stronger web applications with (nearly) zero configuration. Get rid of mess and focus the main logic of your project. You can check out some key featues of the framework;
 
-Welcome to Ness PHP Framework. Ness PHP is an excellent but straightforward application development framework. Ness PHP aims to help you in your coding process by speeding up development with ready to use libraries that require minimal configuration. The structure was developed based on the MVC architectural design. You can check out some key featues of the framework;
    - [Easy Project And Environment Configuration](https://nessphp.github.io/docs/pages/configuration.html) 
    - [Simple Project Structure](https://nessphp.github.io/docs/pages/structure.html)
    - [AutoPulse database automation library](https://nessphp.github.io/docs/pages/autopulse.html); This library can be used in nearly any database task of your projects.
@@ -17,22 +17,13 @@ Welcome to Ness PHP Framework. Ness PHP is an excellent but straightforward appl
    - [Maintenance Mode](https://nessphp.github.io/docs/pages/configuration.html#maintenance) Helps you to put your application with just one line of code to maintenance mode.
    - [Advanced Forms Class](https://nessphp.github.io/docs/pages/forms.html) you can use Forms class for creating powerfull and [secure](https://nessphp.github.io/docs/pages/forms.html#csrf_protection) forms. 
    - [File Uploads](https://nessphp.github.io/docs/pages/fileupload.html) are made to be easy.
- 
+   
 ## User Guide
 You can access all topics of Ness PHP's from  this link:
 [Ness PHP User Manual](https://nessphp.github.io/docs/index.html "Ness PHP User Manual")
 
-## Who is it for ?
-In simple words; it is for you...
-  - It is lightweight.
-  - It is free to use.
-  - It is free also <b>easy</b> to extend or develop as your personal needs.
-  - Ness PHP uses mvc architecture.
-  - An easy to use template engine.
-  
-  
-## Download
 
+## Download
 <blockquote>
   composer create-project nessphp/application
 </blockquote>
