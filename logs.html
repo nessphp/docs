@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Ness PHP Framework | Docs</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/fnt-aw/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="assets/js/highlightjs/styles/vs2015.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+    <body>
+
+        <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+
+                <div id="sidebar-header" class="text-center">
+                    <br>
+                    <a href="index.html" id="logo-area-link">
+                        <img src="assets/img/nessphp_bordered.png" alt="Ness PHP Documentation" width="70%"/>
+                        <h3>Ness PHP</h3>
+                        <h4>Documentation</h4>
+                    </a>
+                    <a href="index.html" class="btn btn-light btn-sm" style="width: 100%;">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>  Back
+                    </a>
+                </div>
+                <br>
+                <!--Load LATER-->
+                <div id="sidebar-loader" class="sidebar-contents">
+                </div>
+            </nav>
+
+
+
+                <div id="content">
+                   
+                   
+                    <!--Nabvar:start-->
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <button id="sidebarCollapse" class="btn-circle">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </button>
+
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item">
+                                    <a href="index.html" class="navbar-text-header">
+                                        Ness PHP Framework
+                                    </a>
+                                </li>
+                            </ul>
+                        
+                            <button class="btn-circle d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#headernav-links" aria-controls="headernav-links" aria-expanded="false" aria-label="Toggle Menu">
+                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                            </button>
+                            <div class="collapse navbar-collapse" id="headernav-links">
+                                <ul class="nav navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="https://nessphp.github.io/">
+                                            <i class="fa fa-terminal" aria-hidden="true"></i>
+                                            Ness PHP
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="https://github.com/nessphp/application">
+                                            <i class="fa fa-github" aria-hidden="true"></i> 
+                                            GitHub
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="support.html">
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
+                                            Support
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!--Nabvar:end-->
+
+
+                    <!-- ========================content:start======================== -->
+                    <div id="holder">    
+                        <span class="pageheader">Creating Logs & Using Logger Class</span>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <ul class="hash-toc">
+                                    <li>Contents
+                                        <ul>
+                                            <li><a href="#about">About Logs</a></li>
+                                            <li><a href="#create">Create Logs</a></li>
+                                            <li><a href="#clear">Clear Logs</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!--Required Namespace -->
+                            <div class="col-lg-4">
+                                <div class="card bg-dark text-white">
+                                    <div class="card-header">Required Namespace</div>
+                                    <div class="card-body" >
+                                        <ul class="tree">
+                                            <li style="color:#28A745;">Ness
+                                                <ul>
+                                                    <li style="color:#fff;">Log
+                                                        <ul><li>Logger</li></ul> 
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <br>
+            
+                                        <ul class="tree">
+                                                <li style="color:#28A745;">Ness
+                                                    <ul>
+                                                        <li style="color:#fff;">Log
+                                                            <ul><li>LogTypeProvider</li></ul> 
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        <hr>
+                                        <span><small>You can include this library to your code file by typing the below code;</small></span>
+                                        <br><br>
+                                        <span style="color:#3490CF;">use</span> 
+                                        <span style="color:#28A745;">Ness\Log</span>\Logger
+            
+                                        <br><br>
+                                        <span style="color:#3490CF;">use</span> 
+                                        <span style="color:#28A745;">Ness\Log</span>\LogTypeProvider
+                                        
+                                    </div> 
+                                </div>
+                            </div>
+                            <!--end: Required Namespace -->
+                        </div>
+
+                        <br><br>
+                        <!--start: topic-->
+                        <h4 id="about">About Logs &amp; Logging in Ness PHP <small><a href="#content">#top</a></small></h4>
+                        <p>
+                            This class is used to generate logs. You can use the functions of class for creating Error files, warning files or output messages. Created txt files will be located in 'Output' folder of your application. 
+                        </p>
+                        <br>
+                        <!--end: topic-->
+
+
+
+                        <!--start: topic-->
+                        <h4 id="create">Create Logs <small><a href="#content">#top</a></small></h4>
+                        <p>
+                            Create an output log file.
+
+                            <br>
+                            <pre>
+                                <code class="php">Logger::Output(LogTypeProvider  $type, string  $title,string  $msg ) : void</code>
+                            </pre>
+                            
+                            <br>
+                        <ol style="list-style: circle;">
+                            <li>
+                                Log Types for Parameter $type;
+                                <ol style="list-style: disc;">
+                                    <li>LogTypeProvider::Error()</li>
+                                    <li>LogTypeProvider::Warning()</li>
+                                    <li>LogTypeProvider::OutputMessage()</li>
+                                </ol>        
+                            </li>
+                        </ol>
+    
+    
+                        <h5>Example</h5>
+    
+                        Create a log when user is loged in;
+    
+                        <pre>
+    <code class="php">
+    if(isUserActive()){
+        Logger::Output(LogTypeProvider::OutputMessage(), "Log-in Action", "{@sessiondata['username']} is logged in. Date & Time:".date());
+    }</code>
+                        </pre>
+                        </p>
+                        <br>
+                        <!--end: topic-->
+
+
+
+
+                        <!--start: topic-->
+                        <h4 id="clear">Header <small><a href="#content">#top</a></small></h4>
+                        <p>
+                            Clear Log Files. If you do not set a parameter to function all logs will be cleared.
+
+                            <br>
+                            <pre>
+                                <code class="php">Logger::ClearLogs(LogTypeProvider  $type) : void</code>
+                            </pre>
+    
+                            <div class="alert alert-info">
+                                Do not set a type for clearing all log files
+                            </div>
+                        </p>
+                        <br>
+                        <!--end: topic-->
+
+                    </div>
+                    <!-- ========================content:end======================== -->
+                    
+                </div>
+        </div>
+    
+       
+
+
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/nessphp.js"></script>
+         <script src="assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>  
+    </body>
+
+
+
+</html>

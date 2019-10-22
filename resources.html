@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Ness PHP Framework | Docs</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/fnt-aw/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!--Load highlightjs package -->
+        <link rel="stylesheet" href="assets/js/highlightjs/styles/vs2015.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+    <body>
+
+        <div class="wrapper">
+             <!-- Sidebar  -->
+             <nav id="sidebar">
+
+                <div id="sidebar-header" class="text-center">
+                    <br>
+                    <a href="index.html" id="logo-area-link">
+                        <img src="assets/img/nessphp_bordered.png" alt="Ness PHP Documentation" width="70%"/>
+                        <h3>Ness PHP</h3>
+                        <h4>Documentation</h4>
+                    </a>
+                    <a href="index.html" class="btn btn-light btn-sm" style="width: 100%;">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>  Back
+                    </a>
+                </div>
+                <br>
+                <!--Load LATER-->
+                <div id="sidebar-loader" class="sidebar-contents">
+                </div>
+            </nav>
+
+
+
+                <div id="content">
+                   
+                   
+                    <!--Nabvar:start-->
+                    <nav class="navbar navbar-expand-lg">
+                        <div class="container-fluid">
+                            <button id="sidebarCollapse" class="btn-circle">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </button>
+
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item">
+                                    <a href="index.html" class="navbar-text-header">
+                                        Ness PHP Framework
+                                    </a>
+                                </li>
+                            </ul>
+                        
+                            <button class="btn-circle d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#headernav-links" aria-controls="headernav-links" aria-expanded="false" aria-label="Toggle Menu">
+                                <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                            </button>
+                            <div class="collapse navbar-collapse" id="headernav-links">
+                                <ul class="nav navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="https://nessphp.github.io/">
+                                            <i class="fa fa-terminal" aria-hidden="true"></i>
+                                            Ness PHP
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " href="https://github.com/nessphp/application">
+                                            <i class="fa fa-github" aria-hidden="true"></i> 
+                                            GitHub
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="support.html">
+                                            <i class="fa fa-heart" aria-hidden="true"></i>
+                                            Support
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!--Nabvar:end-->
+
+
+                    <!-- ========================content:start======================== -->
+                    <div id="holder">    
+                        <span class="pageheader">Ness PHP Resource Management</span>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <ul class="hash-toc">
+                                    <li>Contents
+                                        <ul>
+                                            <li><a href="#about">About Resource Management</a></li>
+                                            <li><a href="#enable">Enable Resources</a></li>
+                                            <li><a href="#types">Resource Types</a></li>
+                                            <li><a href="#methods">Methods</a></li>
+                                            <li><a href="#example">Example</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!--Required Namespace -->
+                            <div class="col-lg-4">
+                                <div class="card bg-dark text-white">
+                                    <div class="card-header">Required Namespace</div>
+                                    <div class="card-body" >
+                                        <ul class="tree">
+                                            <li style="color:#28A745;">Ness
+                                                <ul>
+                                                    <li style="color:#fff;">Resources
+                                                        <!--<ul><li>DataSize</li></ul> -->
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <hr>
+                                        <span><small>You can include this library to your code file by typing the below code;</small></span>
+                                        <br><br>
+                                        <span style="color:#3490CF;">use</span> 
+                                        <span style="color:#28A745;">Ness</span>\Resources
+                                        
+                                    </div> 
+                                </div>
+                            </div>
+                            <!--end: Required Namespace -->
+                        </div>
+
+                        <br><br>
+                        <!--start: topic-->
+                        <h4 id="about">About Resource Management Class <small><a href="#content">#top</a></small></h4>
+                        <p>
+                            Ness PHP Framework contains a resource class which is designed to help you to manage your static values. You can define two type of resource in the current version of Ness. 
+                            <br><br>
+                            A string resource provides you an external file to get static string values which can be Application name, address lines, color codes or any other static data. 
+                            <br><br>
+                            Image resources provides you an external xml file to store local or remote images with width and height attributes also base64 values, so you can include images to your html with a single line. 
+                        </p>
+                        <br>
+                        <!--end: topic-->
+
+
+                         <!--start: topic-->
+                         <h4 id="enable">Enable Resources <small><a href="#content">#top</a></small></h4>
+                         <p>
+                            Please follow this simple instructions to start using Resource helper class in your projects.
+                            <br>
+    
+                            <ol>
+                                <li>Create a resource file in your project root or anywhere else in your project's application path. There is also a default empty resource file available called 'resources.xml'. Please do not forget you must define a valid xml file to define your resource values.</li>
+                                <li>Define a new string/image value your xml resource file.</li>
+                                <li>Include Resource class in your code file and start using resources.</li>
+                            </ol>
+                            
+                        </p>
+                        <br><br>
+    
+    
+    
+                        <h4 id="types">Resource Types &amp; Resource Definitions <small><a href="#content">#top</a></small></h4>
+                        <p>
+                            Here is a short description &amp; example for using Resource class and defining a new resource in your projects. 
+    
+                            <br><br><br>
+    
+                            <h5>String Resources</h5>
+                            <pre><code class="xml">
+    &#x3C;?xml version=&#x22;1.0&#x22; encoding=&#x22;utf-8&#x22;?&#x3E;
+    &#x3C;resources&#x3E;
+        &#x3C;string id=&#x22;appname&#x22;&#x3E;Empty Ness Application&#x3C;/string&#x3E;
+        &#x3C;string id=&#x22;version&#x22;&#x3E;1.0&#x3C;/string&#x3E;
+        &#x3C;string id=&#x22;author&#x22;&#x3E;Sinan SALIH&#x3C;/string&#x3E;
+        &#x3C;string id=&#x22;message1&#x22;&#x3E;Good Morning User&#x3C;/string&#x3E;
+    &#x3C;/resources&#x3E;
+                            </code></pre>
+                            <br><br><br>
+    
+                            <h5>Image Resources</h5>
+                            <pre><code class="xml">
+    
+    &#x3C;?xml version=&#x22;1.0&#x22; encoding=&#x22;utf-8&#x22;?&#x3E;
+    &#x3C;resources&#x3E;
+        &#x3C;image id=&#x22;myimge&#x22; width=&#x22;48&#x22; height=&#x22;48&#x22;&#x3E;C:\Users\Images\image1.png&#x3C;/image&#x3E;
+        &#x3C;image id=&#x22;myimge2&#x22; width=&#x22;48&#x22;&#x3E;data:image/jpeg;base64,/9j/4AAQSkZJ........&#x3C;/image&#x3E;
+        &#x3C;image id=&#x22;myimge3&#x22;&#x3E;https://www.site.com/images/image.jpg&#x3C;/image&#x3E;
+    
+        &#x3C;string id=&#x22;appname&#x22;&#x3E;Empty Ness Application&#x3C;/string&#x3E;
+        &#x3C;string id=&#x22;version&#x22;&#x3E;1.0&#x3C;/string&#x3E;
+        &#x3C;string id=&#x22;author&#x22;&#x3E;Sinan SALIH&#x3C;/string&#x3E;
+        &#x3C;string id=&#x22;message1&#x22;&#x3E;Good Morning User&#x3C;/string&#x3E;
+    &#x3C;/resources&#x3E;
+                            </code></pre>
+                            <br><br>
+                         </p>
+                         <br>
+                         <!--end: topic-->
+
+
+                          <!--start: topic-->
+                        <h4 id="methods">Methods <small><a href="#content">#top</a></small></h4>
+                        <p>
+                            <h5>Get String</h5>
+                            <pre><code class="php">Resources::String->get(string $prm1);</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Get a string value from xml</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">String</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$prm1 String; id in xml file for string tag</td>
+                            </tr>
+                            </table>
+                            <br><br><br>
+
+
+                            <h5>Get Image</h5>
+                            <pre><code class="php">Resources::Image->get(string $prm1);</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Get a Image with ready to use html img tag.</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">String / Image(img) tag for html views.</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$prm1 String; id in xml file for image tag</td>
+                            </tr>
+                            </table>
+                            <br><br><br>
+
+                            <h5>Get Image Value</h5>
+                            <pre><code class="php">Resources::Image->getValue(string $prm1);</code></pre>
+                            <table class="code-desc">
+                            <tr>
+                                <td colspan="3">Get a value set in image tag. This method can be used for getting paths and a image object.</td>
+                            </tr>
+                            <tr>
+                                <td>Return</td>
+                                <td colspan="2">String</td>
+                            </tr>
+                            <tr>
+                                <td>Parameters</td>
+                                <td colspan="2">$prm1 String; id in xml file for image tag</td>
+                            </tr>
+                            </table>
+                            <br><br>
+                        </p>
+                        <br>
+                        <!--end: topic-->
+
+
+                         <!--start: topic-->
+                         <h4 id="example">A Simple Example for Resource Class <small><a href="#content">#top</a></small></h4>
+                         <p>
+                            Here is a short example to show how to use your resources in php code. 
+
+                            <br>
+                            <h5>Get String values from xml</h5>
+                            Assume that we need to get a greeting message from the xml file. Lets create a xml resource file;
+                            Create the following file:<br><br>
+                            <span class="ug-code ug-method">[project_root]/Application/Resources.xml</span>
+                            and define your values in the xml file; <br><br>
+                            <pre><code class="xml">
+    &#x3C;?xml version=&#x22;1.0&#x22; encoding=&#x22;utf-8&#x22;?&#x3E;
+    &#x3C;resources&#x3E;
+        &#x3C;string id=&#x22;msg1&#x22;&#x3E;Hello Welcome to my new Ness PHP Project&#x3C;/string&#x3E;
+        &#x3C;string id=&#x22;author_name&#x22;&#x3E;Sinan SALIH &#x3C;/string&#x3E;
+        &#x3C;string id=&#x22;style_red_color&#x22;&#x3E; style=&#x22;color:red;&#x22; &#x3C;/string&#x3E;
+    &#x3C;/resources&#x3E;
+                            </code></pre>
+    
+                            <br><br>
+    
+                            Now we need to check app_config.php file if the Resource.xml is defined.
+                            <br>
+                            <pre><code class="php">
+    /*
+    * === [Application Resource Files ] ===
+    * This function is used to set the
+    * path of the resource.xml file which is used
+    * to store static values for your projects(ex; strings, image paths etc)
+    * Note; the core app location ('Application' by default) is excluded from the value.
+    */
+    Configuration::setResourceFile('Resources.xml');
+                            </code></pre>
+                            find the lines above and check if the filename of resource file is true.
+                            
+                            <br><br>
+    
+                            Thats All. Now we can start using resources in our codes. Lets create an action in index
+                            controller to show the message from xml file;<br><br>
+    
+                            <pre><code class="php">
+    &#x3C;?php
+    
+    use Ness\Controller as myController;
+    use Ness\Resources;
+    
+    class indexController extends myController
+    {
+        public function indexAction($param = 0)
+        {     
+            echo Resources::String()-&#x3E;get(&#x22;msg1&#x22;).&#x22; by &#x22;. Resources::String()-&#x3E;get(&#x22;author_name&#x22;);
+        }
+    }                     
+                            </code></pre><br>
+    
+                            Result:<br>
+                            <code>Hello Welcome to my new Ness PHP Project by Sinan SALIH</code>
+    
+                            <br><br><br>
+                            <h5>Get Images &amp; Image Values from xml</h5>
+                            Follow the steps above to create a xml file and check the app_config.php file for the Resource file path.
+                            <br><br>
+    
+                            Add image values to resource file;<br>
+                            <pre><code class="xml">
+    &#x3C;?xml version=&#x22;1.0&#x22; encoding=&#x22;utf-8&#x22;?&#x3E;
+    &#x3C;resources&#x3E;
+        &#x3C;image id=&#x22;fw_logo&#x22;&#x3E;https://github.com/nessphp/framework/blob/master/Application/Content/img/ness_logo_rounded.png?raw=true&#x3C;/image&#x3E;
+        &#x3C;image id=&#x22;fw_logo_small&#x22; width=&#x22;48&#x22; height=&#x22;48&#x22;&#x3E;https://github.com/nessphp/framework/blob/master/Application/Content/img/ness_logo_rounded.png?raw=true&#x3C;/image&#x3E;    
+    &#x3C;/resources&#x3E;
+                            </code></pre>
+    
+                            <br><br>
+    
+                            Assume that we have a view called startpage.php and want to show the image set above;<br><br>
+                            <pre><code class="php">
+        &#x3C;?php
+        use Ness\Resources;
+    
+        $page = new Ness\UI\Page();
+        $page-&#x3E;setLayout(&#x27;master_page.php&#x27;);
+        $page-&#x3E;BeginContent();
+    ?&#x3E;
+    &#x3C;!-- PAGE CONTENT STARTS --&#x3E;
+    
+    
+    &#x3C;h5&#x3E;Original Image Get From Xml&#x3C;/h5&#x3E;
+    &#x3C;?= Resources::Image()-&#x3E;get(&#x22;fw_logo&#x22;);?&#x3E;
+    
+    &#x3C;hr&#x3E;
+    
+    
+    &#x3C;h5&#x3E;Get Image With Properties&#x3C;/h5&#x3E;
+    &#x3C;?= Resources::Image()-&#x3E;get(&#x22;fw_logo_small&#x22;)?&#x3E;
+    
+    
+    &#x3C;hr&#x3E;
+    &#x3C;h5&#x3E;Image Value Get From Xml&#x3C;/h5&#x3E;
+    &#x3C;img src=&#x22;&#x3C;?= Resources::Image()-&#x3E;getValue(&#x22;fw_logo&#x22;);?&#x3E;&#x22; height=&#x22;48&#x22; width=&#x22;48&#x22;&#x3E;
+    
+    
+    
+    
+    &#x3C;!-- PAGE CONTENT ENDS --&#x3E;
+    &#x3C;?php
+        $page-&#x3E;EndContent();
+    ?&#x3E;
+                            </code></pre>
+    
+                            <br><br>
+                            Result:
+                            <img src="assets/img/resource_example.PNG" class="code-desc"/>
+                         </p>
+                         <br>
+                         <!--end: topic-->
+
+
+                    </div>
+                    <!-- ========================content:end======================== -->
+                    
+                </div>
+        </div>
+    
+       
+
+
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/nessphp.js"></script>
+         <script src="assets/js/highlightjs/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>  
+    </body>
+
+
+
+</html>
